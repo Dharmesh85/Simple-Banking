@@ -1,3 +1,4 @@
+
 <?php
 $a1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $a2 = [0, 1, 3, 5, 7, 9, 2, 4, 6, 8, 10];
@@ -51,3 +52,19 @@ echo "Problem 1: Odd Output<br>";
         border-left: solid 1px black;
     }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
