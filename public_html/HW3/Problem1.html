@@ -19,22 +19,45 @@
         }
     </script>
     <style>
+    /* Making the Navigation Bar Horizontal */
+       nav ul li {
+            display:inline-block;
+            margin: 0 5px;
+            list-style-type: none;
+            /* Applying Separators to Navigation Bar */
+            border-right: 2px solid rgb(0, 0, 0);}
+    /* Set background of Navigation Bar */
+        ul li{
+            display: block;
+            padding: 10px;
+            background-color: #01ebfcd7;
+            
+        }
+
     /* Changed BackGround on Mouseover */
          a:hover { 
              background-color: rgb(255, 255, 255);
             }
-    <!-- Changing BackGround -->
-            ul {
-                list-style: none;
+    /* Upper-Case For a tags */
+        nav{
+            text-transform: capitalize; 
             }
-            ul li:before {
-                content: '✓';
-            }
-       
+    /* Changing Bullets  */
+   li {
+    list-style-type: none;
+    position: relative;}
+    ul li ul li::before {
+    content: '✓';
+    position: absolute;
+    left: -0.8em;          
+    font-size: 1.1em;
+}
+ 
+
     </style>
     <!-- Changing BackGround -->
     <body 
-    style="background-color:rgba(166, 185, 187, 0.89);">
+    style="background-color:rgb(255, 217, 2);">
     </body>  
     
         
