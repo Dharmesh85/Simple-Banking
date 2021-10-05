@@ -9,6 +9,7 @@
             console.log("loaded via javascript");
             //TODO: add any extra onload processing you may need here
         });
+        
         function getCurrentSelection() {
             setTimeout(() => {
                 //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
@@ -20,12 +21,13 @@
     </script>
     <style>
     /* Making the Navigation Bar Horizontal */
-       nav ul li {
+       nav ul li{
             display:inline-block;
             margin: 0 5px;
-            list-style-type: none;
+            list-style-type:none;
             /* Applying Separators to Navigation Bar */
             border-right: 2px solid rgb(0, 0, 0);}
+
     /* Set background of Navigation Bar */
         ul li{
             display: block;
@@ -46,18 +48,23 @@
    li {
     list-style-type: none;
     position: relative;}
-    ul li ul li::before {
+
+    body ul li ul::before {
     content: '✓';
-    position: absolute;
+    position: relative;
     left: -0.8em;          
     font-size: 1.1em;
 }
- 
-
+    ul li ul li::before {
+    content: '✓';
+    position:absolute;
+    left: -0.8em;          
+    font-size: 1.1em;
+}
     </style>
     <!-- Changing BackGround -->
     <body 
-    style="background-color:rgb(255, 217, 2);">
+    style="background-color:rgb(255, 217, 0);">
     </body>  
     
         
