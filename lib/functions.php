@@ -1,14 +1,8 @@
 <?php
-//TODO 1: require db.php
 require_once(__DIR__ . "/db.php");
 
-/** Safe Echo Function
- * Takes in a value and passes it through htmlspecialchars()
- * or
- * Takes an array, a key, and default value and will return the value from the array if the key exists or the default value.
- * Can pass a flag to determine if the value will immediately echo or just return so it can be set to a variable
- */
-function se($v, $k = null, $default = "", $isEcho = true) {
+function se($v, $k = null, $default = "", $isEcho = true)
+{
     if (is_array($v) && isset($k) && isset($v[$k])) {
         $returnValue = $v[$k];
     } else if (is_object($v) && isset($k) && isset($v->$k)) {
@@ -32,11 +26,4 @@ function se($v, $k = null, $default = "", $isEcho = true) {
         return htmlspecialchars($returnValue, ENT_QUOTES);
     }
 }
-
-//TODO 2: filter helpers
-
-//TODO 3: User helpers
-
-
-//TODO 4: Flash Message Helpers
 ?>
