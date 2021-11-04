@@ -1,5 +1,5 @@
 
-<canvas id="canvas" width="600" height="400" style="border:1px solid #000000" tabindex="1";></canvas>
+<canvas id="canvas" width="600" height="400" style="border:2px solid #000000" tabindex="1";></canvas>
 
 <script>
 // Arcade Shooter game
@@ -66,6 +66,8 @@ function isColliding(a, b) {
 
 // Track the user's score
 var score = 0;
+// Space Clicks
+var space = 0
 // The delay between enemies (in milliseconds)
 var timeBetweenEnemies = 5 * 1000;
 // ID to track the spawn timeout
@@ -104,6 +106,8 @@ function startGame() {
   draw();
   // Stop listening for click events
   canvas.removeEventListener('click', startGame);
+  counter = 0
+  
 }
 
 // Show the end game screen
@@ -115,7 +119,9 @@ function endGame() {
   context.fillStyle = '#000000';
   context.font = '24px Arial';
   context.textAlign = 'center';
-  context.fillText('Game Over. Final Score: ' + score, canvas.width / 2, canvas.height / 2);
+  context.fillText('Game Over! ', canvas.width / 2, canvas.height / 2);
+  context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 1.7);
+  context.fillText('Bullets Fired: ' + space, canvas.width / 2, canvas.height / 1.5);
   context.font = '24px Arial';
   context.fillText('Press R to Restart', canvas.width / 2, (canvas.height / 4) * 3);
 }
@@ -157,6 +163,7 @@ function erase() {
 function shoot() {
   if (!shooting) {
     shooting = true;
+    space++
     bullet.x = ship.x + ship.l;
     bullet.y = ship.y + ship.l / 2;
   }
@@ -201,6 +208,7 @@ function draw() {
   // Move and draw the bullet
   if (shooting) {
     // Move the bullet
+    
     bullet.x += bullet.s;
     // Collide the bullet with enemies
     enemies.forEach(function(enemy, i) {
@@ -231,11 +239,13 @@ function draw() {
   context.font = '24px Arial';
   context.textAlign = 'left';
   context.fillText('Score: ' + score, 1, 25)
+  context.fillText('Bullets Fired: ' + space, 1, 50)
   // End or continue the game
   if (gameOver) {
     endGame();
   } else {
     window.requestAnimationFrame(draw);
+
   }
 }
 
