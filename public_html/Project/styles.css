@@ -13,9 +13,20 @@
 .alert-info {
     background-color: rgb(236, 56, 56);
 }
-nav li{display: inline; background-color: rgb(236, 56, 56);}
-nav li a{color: rgb(10, 4, 7)}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+nav li{display: block; padding: 8px; background-color: rgb(236, 56, 56);}
+nav li a{display: block; text-align: center; padding: 14px 16px; color: white}
+li a:hover {
+    background-color: #111;
+  }
 input{border-radius: 50%;}
+
 body{
     background-color: rgb(255, 255, 255);
     color: rgb(122, 110, 122);
