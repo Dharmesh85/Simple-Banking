@@ -2,6 +2,8 @@
 require_once(__DIR__ . "/../../partials/nav.php");
 is_logged_in(true);
 ?>
+<h1>Profile</h1>
+
 <?php
 if (isset($_POST["save"])) {
     $email = se($_POST, "email", null, false);
