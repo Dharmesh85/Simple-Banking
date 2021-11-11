@@ -35,7 +35,7 @@ li a:hover {
   }
 input{border-radius: 5px;}
 
-li a{display: block; text-align:left; color: white}
+li a{color:white}
 
 body{
     background-color: rgb(68, 68, 68);
