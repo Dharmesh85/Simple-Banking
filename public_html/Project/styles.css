@@ -33,7 +33,7 @@ nav li a{display: block; text-align:left; padding: 12px 14px; color: white}
 li a:hover {
     background-color: #111;
   }
-input{border-radius: 50%;}
+input{border-radius: 5px;}
 
 body{
     background-color: rgb(255, 255, 255);
