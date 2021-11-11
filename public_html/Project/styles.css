@@ -35,6 +35,8 @@ li a:hover {
   }
 input{border-radius: 5px;}
 
+nav ul li{display: block; text-align:left; padding: 12px 14px; color: white}
+
 body{
     background-color: rgb(68, 68, 68);
     color: rgb(122, 110, 122);
