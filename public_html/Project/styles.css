@@ -39,6 +39,7 @@ li a{color:white}
 
 body{
     background-color: rgb(68, 68, 68);
+    display:block;
     color: rgb(255, 255, 255);
 
 }
