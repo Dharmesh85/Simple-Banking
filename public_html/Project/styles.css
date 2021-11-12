@@ -33,6 +33,26 @@ ul {
     border-right: 1px solid #bbb;
     
   }
+  .grid-container {
+    display: grid;
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left middle middle right right' 
+      'footer footer footer footer footer footer';
+    /* grid-column-gap: 10px; - if you want gap between the columns */
+  } 
+  
+  .left,
+  .middle,
+  .right {
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Style the left column */
+  .left {
+    grid-area: left;
+  }
 nav li{display: block; padding: 6px; background-color: rgb(236, 56, 56);}
 nav li a{display: block; text-align:left; padding: 12px 14px; color: white}
 li a:hover {
