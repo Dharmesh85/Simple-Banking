@@ -2,8 +2,8 @@
 ## Project Summary: This project will create a bank simulation for users. They’ll be able to have various accounts, do standard bank functions like deposit, withdraw, internal (user’s accounts)/external(other user’s accounts) transfers, and creating/closing accounts.
 ## Github Link: (Prod Branch of Project Folder)
 ## Project Board Link: 
-## Website Link: (Heroku Prod of Project folder)
-## Your Name:
+## Website Link: (https://dbp64.herokuapp.com/Project/login.php)
+## Your Name:Dharmesh Patel
 
 <!--
 ### Line item / Feature template (use this for each bullet point)
@@ -29,7 +29,7 @@
 - [x] (10/12/2020 of completion) User will be able to register a new account
   -  List of Evidence of Feature Completion
     - Status:Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/register.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/17
     - Screenshots
@@ -46,7 +46,7 @@
 - [ ] \(10/14/2021 ) User will be able to login to their account (given they enter the correct credentials)
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/login.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/18
     - Screenshots
@@ -69,7 +69,7 @@
 - [ ] \(10/14/2021 ) User will be able to logout
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/home.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/18
     - Screenshots
@@ -87,13 +87,13 @@
 - [ ] \(10/14/2021 ) Basic security rules implemented
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/home.php
     - Pull Requests
       - PR link #1 (https://github.com/Dharmesh85/IT202-011/pull/18)
     - Screenshots
       - Screenshot #1 <img width="753" alt="Screen Shot 2021-11-12 at 12 39 37 AM" src="https://user-images.githubusercontent.com/77698793/141415955-2a2ec7e5-b522-4895-b6a0-f22b05e11bb6.png">
         - Screenshot #1 Function to check if user is logged in
-      -  Screenshot #2 <img width="753" alt="Screen Shot 2021-11-12 at 12 39 37 AM" src="https://user-images.githubusercontent.com/77698793/141415955-2a2ec7e5-b522-4895-b6a0-f22b05e11bb6.png">
+      -  Screenshot #2 <img width="397" alt="Screen Shot 2021-11-12 at 1 52 49 AM" src="https://user-images.githubusercontent.com/77698793/141423615-2ffd3889-d704-4a1e-9b00-8eb7d11d32c4.png">
         - Screenshot #2 Function called on appropriate pages
       - Screenshot #3 <img width="623" alt="Screen Shot 2021-11-11 at 9 41 00 PM" src="https://user-images.githubusercontent.com/77698793/141399782-9191c8db-c10c-4389-bddc-3f503c5dcbd8.png">
         - Screenshot #3 Shows Roles of user
