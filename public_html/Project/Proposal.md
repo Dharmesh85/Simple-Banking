@@ -1,7 +1,7 @@
 # Project Name: Simple Banking
 ## Project Summary: This project will create a bank simulation for users. They’ll be able to have various accounts, do standard bank functions like deposit, withdraw, internal (user’s accounts)/external(other user’s accounts) transfers, and creating/closing accounts.
-## Github Link: (Prod Branch of Project Folder)
-## Project Board Link: 
+## Github Link: https://github.com/Dharmesh85/IT202-011/tree/prod
+## Project Board Link: https://github.com/Dharmesh85/IT202-011/projects/1
 ## Website Link: (https://dbp64.herokuapp.com/Project/login.php)
 ## Your Name:Dharmesh Patel
 
@@ -106,7 +106,7 @@
 
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/home.php
     - Pull Requests
       - PR link #1 (https://github.com/Dharmesh85/IT202-011/pull/36)
     - Screenshots
@@ -124,7 +124,7 @@
 - [ ] \(11/10/2021) Site should have basic styles/theme applied; everything should be styled
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/home.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/35
     - Screenshots
@@ -137,7 +137,7 @@
 - [ ] \(10/14/2021) Any output messages/errors should be “user friendly”
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/login.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/18
     - Screenshots
@@ -149,8 +149,8 @@
 
 - [ ] \(11/10/2021) User will be able to see their profile
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://dbp64.herokuapp.com/Project/Profile.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/34
     - Screenshots
@@ -160,10 +160,10 @@
 ### Line item / Feature template (use this for each bullet point)
 #### Don't delete this
 
-- [ ] \(mm/dd/yyyy of completion) User will be able to edit their profile
+- [ ] \(11/10/2021) User will be able to edit their profile
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://dbp64.herokuapp.com/Project/Profile.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/37
     - Screenshots
