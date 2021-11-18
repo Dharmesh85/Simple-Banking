@@ -6,14 +6,6 @@ reset_session();
 
 <form onsubmit="return validate(this)" method="POST">
     <div>
-        <label for="First Name">First Name</label>
-        <input type="First Name" name="First Name" required />
-    </div>
-    <div>
-        <label for="Last Name">Last Name</label>
-        <input type="Last Name" name="Last Name" required />
-    </div>
-    <div>
         <label for="email">Email</label>
         <input type="email" name="email" required />
     </div>

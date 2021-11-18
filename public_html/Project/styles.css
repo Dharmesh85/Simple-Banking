@@ -1,4 +1,4 @@
-.alert-success {
+/*.alert-success {
      background-color: rgb(0, 0, 0)
 }
 
@@ -15,11 +15,11 @@
     background-color: rgb(68, 68, 68);
 }
 /* Spacing */
-nav {
+/*nav {
   margin-top: 65px;
 }
 /* Nav Bar Editing*/
-ul {
+/*ul {
     position: fixed;
     top: 0;
     width: 100%;
