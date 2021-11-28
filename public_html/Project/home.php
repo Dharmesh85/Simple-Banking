@@ -1,7 +1,7 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
-<h1>Home</h1>
+<h1>Bank of IT-202</h1>
 
 <?php
 

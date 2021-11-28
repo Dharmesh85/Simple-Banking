@@ -1,0 +1,1 @@
+ALTER TABLE BGD_Accounts CHANGE account_type account_type varchar(255);
