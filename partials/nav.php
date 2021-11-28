@@ -29,7 +29,7 @@ require_once(__DIR__ . "/../lib/functions.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="styles.css">
 <script src="helpers.js"></script>
-<nav class="navbar navbar-expand-- navbar-light bg-danger">
+<nav class="navbar navbar-expand- navbar-light bg-danger"><a It101>
     
     <div class="container-fluid">
         
@@ -42,6 +42,7 @@ require_once(__DIR__ . "/../lib/functions.php");
                 
                 <?php if (is_logged_in()) : ?>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('home.php'); ?>">Home</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('dashboard.php'); ?>">Dashboard</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('account_get_or_create.php'); ?>">Account</a></li>
                 <?php endif; ?>
