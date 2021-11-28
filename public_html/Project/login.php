@@ -1,6 +1,9 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
+<head>
+  <title>Login</title>
+</head>
 <div class="container-fluid">
     <h1>Login</h1>
     <form onsubmit="return validate(this)" method="POST">
