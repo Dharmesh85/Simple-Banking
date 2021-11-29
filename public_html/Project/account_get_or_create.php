@@ -20,9 +20,10 @@ require(__DIR__ . "/../../partials/nav.php");
         <input type="submit" class="mt-3 btn btn-primary" value="Enter" />
         
 <?php
-
+/*
 function get_or_create_account()
 {
+
     if (is_logged_in()) {
         //let's define our data structure first
         //id is for internal references, account_number is user facing info, and balance will be a cached value of activity
@@ -82,5 +83,5 @@ function get_or_create_account()
         flash("You're not logged in", "danger");
     }
 }
+*/
 ?>
-

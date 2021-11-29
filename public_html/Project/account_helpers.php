@@ -1,4 +1,5 @@
 <?php
+/*
 require(__DIR__ . "/../../partials/function.php");
 //snippet from my functions.php
 function get_account_balance()
@@ -17,3 +18,4 @@ function get_user_account_id()
 }
 
 ?>
+*/
