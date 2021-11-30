@@ -20,7 +20,7 @@ require(__DIR__ . "/../../partials/nav.php");
     
 
 <div class="jumbotron text-center">
-  <h1>Dashboard</h1>
+  <h1> Dashboard </h1>
 </div>
 
 
