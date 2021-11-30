@@ -44,7 +44,6 @@ require_once(__DIR__ . "/../lib/functions.php");
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('home.php'); ?>">Home</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('dashboard.php'); ?>">Dashboard</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
-                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
                 <?php endif; ?>
                 <?php if (!is_logged_in()) : ?>
                     <li class="navbar-brand "><a class="nav-link" href="<?php echo get_url('login.php'); ?>">Login</a></li>
@@ -55,10 +54,13 @@ require_once(__DIR__ . "/../lib/functions.php");
                         <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Roles
                         </a>
+                        <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
                         <ul class="dropdown-menu bg-warning" aria-labelledby="rolesDropdown">
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/create_role.php'); ?>">Create</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/list_roles.php'); ?>">List</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
+                                                <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
+
                         </ul>
                     </li>
                 <?php endif; ?>
