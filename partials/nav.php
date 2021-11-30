@@ -4,7 +4,7 @@ $domain = $_SERVER["HTTP_HOST"];
 if (strpos($domain, ":")) {
     $domain = explode(":", $domain)[0];
 }
-$localWorks = true; //some people have issues with localhost for the cookie params
+$localWorks = false; //some people have issues with localhost for the cookie params
 //if you're one of those people make this false
 
 //this is an extra condition added to "resolve" the localhost issue for the session cookie
@@ -23,26 +23,58 @@ session_start();
 require_once(__DIR__ . "/../lib/functions.php");
 
 ?>
+
 <!-- include css and js files -->
-<link rel="stylesheet" href="<?php echo get_url('styles.css'); ?>">
-<script src="<?php echo get_url('helpers.js'); ?>"></script>
-<nav>
-    <ul>
-        <?php if (is_logged_in()) : ?>
-            <li><a href="<?php echo get_url('home.php'); ?>">Home</a></li>
-            <li><a href="<?php echo get_url('Profile.php'); ?>">Profile</a></li>
-        <?php endif; ?>
-        <?php if (!is_logged_in()) : ?>
-            <li><a href="<?php echo get_url('login.php'); ?>">Login</a></li>
-            <li><a href="<?php echo get_url('register.php'); ?>">Register</a></li>
-        <?php endif; ?>
-        <?php if (has_role("Admin")) : ?>
-            <li><a href="<?php echo get_url('admin/create_role.php'); ?>">Create Role</a></li>
-            <li><a href="<?php echo get_url('admin/list_roles.php'); ?>">List Roles</a></li>
-            <li><a href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign Roles</a></li>
-        <?php endif; ?>
-        <?php if (is_logged_in()) : ?>
-            <li style="float:right"><a class="active" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>
-        <?php endif; ?>
-    </ul>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="styles.css">
+<script src="helpers.js"></script>
+<nav class="navbar navbar-expand- navbar-light bg-danger">
+    
+    <div class="container-fluid">
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                
+                <?php if (is_logged_in()) : ?>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('home.php'); ?>">Home</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('dashboard.php'); ?>">Dashboard</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
+                    
+                <?php endif; ?>
+                <?php if (!is_logged_in()) : ?>
+                    <li class="navbar-brand "><a class="nav-link" href="<?php echo get_url('login.php'); ?>">Login</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('register.php'); ?>">Register</a></li>
+                <?php endif; ?>
+                <?php if (has_role("Admin")) : ?>
+                    <li class="nav-item dropdown" class="navbar-brand">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin Roles
+                        </a>
+                        <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
+                        <ul class="dropdown-menu bg-warning" aria-labelledby="rolesDropdown">
+                            <li><a class="dropdown-item" href="<?php echo get_url('admin/create_role.php'); ?>">Create</a></li>
+                            <li><a class="dropdown-item" href="<?php echo get_url('admin/list_roles.php'); ?>">List</a></li>
+                            <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
+                            <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
+                
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?php echo get_url('Deposit_Withdraw.php'); ?>">Deposit</a>
+                            <a class="dropdown-item" href="<?php echo get_url('Deposit_Withdraw.php'); ?>">Withdraw</a>
+                        </div>
+                    </li>
+
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                <?php if (is_logged_in()) : ?>
+                    <form class="navbar-brand"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
 </nav>
