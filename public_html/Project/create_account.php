@@ -4,28 +4,6 @@ is_logged_in(true);
 ?>
 <head>
 
-  <title>Create Your Account</title>
-</head>
-<p >
-<p >
-<p >
-<p >
-<p >
-<p style="text-align:right">This is some text in a paragraph.</p>
-<form method="POST">
-  <label> Account Number </label>
-  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
-  <label>Account Type</label>
-  <select name="account_type">
-    <option value = "checking">Checking</option>
-    <option value = "world">world</option>
-  </select>
-  <label>Balance</label>
-  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
-	<input type="submit" name="save" value="Create"/>
-</form>
-
-
 <?php 
 
 if(isset($_POST["save"])){
@@ -50,8 +28,25 @@ if(isset($_POST["save"])){
       flash("Error creating: " . var_export($e, true), "danger");
     }
 
-}   
-
+}
 ?> 
+ <title>Create Your Account</title>
+</head>
+
+<h1 style="text-align:Center"font:size 18px >Create A Account</h1>
+<ul class="nav navbar-brand mx-auto m-2 bg-danger mt-4 mb-4 ">
+<form method="POST" onsubmit="return validate(this)">
+  <label> Account Number </label>
+  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
+  <label>Account Type</label>
+  <select name="account_type">
+    <option value = "checking">Checking</option>
+    <option value = "world">world</option>
+  </select>
+  <label>Balance</label>
+  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
+	<input type="submit" name="save" value="Create"/>
+</form>
+
 
 <?php require(__DIR__ . "/../../partials/flash.php");
