@@ -27,7 +27,7 @@
 - [x] \(11/28/2021) Create the Accounts table 
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/create_account.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/61
     - Screenshots
@@ -37,7 +37,7 @@
 - [x] \(11/28/2021) Project setup steps:Create these as initial setup scripts in the sql folder
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/create_account.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/61
     - Screenshots
@@ -47,7 +47,7 @@
 - [x] \(11/28/2021) Create the Transactions table
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/transactions.php?id=1
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/62
     - Screenshots
@@ -57,7 +57,7 @@
 - [x] \(11/28/2021) Dashboard page
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/dashboard.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/59
     - Screenshots
@@ -67,7 +67,7 @@
 - [x] \(11/29/2021) User will be able to create a checking account
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/create_account.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/63
     - Screenshots
@@ -77,7 +77,7 @@
 - [x] \(11/29/2021) User will be able to list their accounts
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/list_accounts.php
     - Pull Requests
       - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/65
     - Screenshots
@@ -87,7 +87,7 @@
 - [x] \(11/29/2021) User will be able to click an account for more information (a.ka. Transaction History page)
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/list_accounts.php
     - Pull Requests
       - PR link #1 (repeat as necessary)
     - Screenshots
@@ -100,7 +100,7 @@
 - [x] \(11/29/2021) User will be able to deposit/withdraw from their account(s)
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: 
+    - Direct Link: https://dbp64.herokuapp.com/Project/Deposit_Withdraw.php
     - Pull Requests
       - PR link #1 
     - Screenshots
