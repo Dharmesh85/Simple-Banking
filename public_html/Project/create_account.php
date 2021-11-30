@@ -1,20 +1,10 @@
-<?php require_once(__DIR__ . "/../partials/nav.php"); ?>
+<?php require_once(__DIR__ . "/../partials/nav.php");
 
-
-<form method="POST">
-  <label> Account Number </label>
-  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
-  <label>Account Type</label>
-  <select name="account_type">
-    <option value = "checking">checking</option>
-    <option value =  "saving">saving</option>
-    <option value = "loan">loan</option>
-    <option value = "world">world</option>
-  </select>
-  <label>Balance</label>
-  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
-	<input type="submit" name="save" value="Create"/>
-</form>
+is_logged_in(true);
+?>
+<head>
+  <title>Create Your Account</title>
+</head>
 
 <?php 
 
@@ -43,4 +33,17 @@ if(isset($_POST["save"])){
 }   
 
 ?> 
+<form method="POST">
+  <label> Account Number </label>
+  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
+  <label>Account Type</label>
+  <select name="account_type">
+    <option value = "checking">Checking</option>
+    <option value = "world">world</option>
+  </select>
+  <label>Balance</label>
+  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
+	<input type="submit" name="save" value="Create"/>
+</form>
+
 <?php require(__DIR__ . "/../partials/flash.php");
