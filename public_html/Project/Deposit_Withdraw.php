@@ -1,6 +1,5 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
-require(__DIR__ . "/../lib/functions.php");
 
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)

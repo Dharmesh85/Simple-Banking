@@ -3,8 +3,15 @@
 is_logged_in(true);
 ?>
 <head>
+
   <title>Create Your Account</title>
 </head>
+<p >
+<p >
+<p >
+<p >
+<p >
+<p style="text-align:right">This is some text in a paragraph.</p>
 <form method="POST">
   <label> Account Number </label>
   <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
