@@ -1,6 +1,8 @@
-<?php require_once(__DIR__ . "/../partials/nav.php"); ?>
+<?php require(__DIR__ . "/../../partials/nav.php");
+require(__DIR__ . "/../../lib/functions.php");
+
+ ?>
 <?php
-//we'll put this at the top so both php block have access to it
 if (isset($_GET["id"])) {
     $tranID = $_GET["id"];
 }
@@ -38,6 +40,6 @@ if (isset($tranID)) {
         </div>
     </div>
 <?php else: ?>
-    <p>Error looking up for id...</p>
+    <p>Error </p>
 <?php endif; ?>
-<?php require(__DIR__ . "/../partials/flash.php");
+<?php require(__DIR__ . "/../../partials/flash.php");

@@ -38,7 +38,7 @@ require(__DIR__ . "/../../partials/nav.php");
 
 
     <div class="col-md-3 mx-auto m-2 bg-danger" >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="#">My Accounts</a></li>
+    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('list_accounts.php'); ?>">My Accounts</a></li>
     </div>
   </div>
   <div class="container">

@@ -1,10 +1,23 @@
-<?php require_once(__DIR__ . "/../partials/nav.php");
+<?php require(__DIR__ . "/../../partials/nav.php");
 
 is_logged_in(true);
 ?>
 <head>
   <title>Create Your Account</title>
 </head>
+<form method="POST">
+  <label> Account Number </label>
+  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
+  <label>Account Type</label>
+  <select name="account_type">
+    <option value = "checking">Checking</option>
+    <option value = "world">world</option>
+  </select>
+  <label>Balance</label>
+  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
+	<input type="submit" name="save" value="Create"/>
+</form>
+
 
 <?php 
 
@@ -23,27 +36,15 @@ if(isset($_POST["save"])){
     ]);
 
     if($r){
-      flash("Created successfully with id: " . $db->lastInsertId());
+      flash("Created successfully with id: " . $db->lastInsertId(),"success");
     }
     else{
       $e = $stmt->errorInfo();
-      flash("Error creating: " . var_export($e, true));
+      flash("Error creating: " . var_export($e, true), "danger");
     }
 
 }   
 
 ?> 
-<form method="POST">
-  <label> Account Number </label>
-  <input type="number" name="account_number" value="<?php echo $result["account_number"];?>" />
-  <label>Account Type</label>
-  <select name="account_type">
-    <option value = "checking">Checking</option>
-    <option value = "world">world</option>
-  </select>
-  <label>Balance</label>
-  <input type="number" min="5.00" name="balance" value="<?php echo $result["balance"];?>" />
-	<input type="submit" name="save" value="Create"/>
-</form>
 
-<?php require(__DIR__ . "/../partials/flash.php");
+<?php require(__DIR__ . "/../../partials/flash.php");
