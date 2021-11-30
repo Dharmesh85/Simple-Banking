@@ -10,7 +10,7 @@ if (!is_logged_in()) {
 if (isset($_GET["type"])) {
   $type = $_GET["type"];
 } else {
-  $type = 'deposit';
+  $type = 'withdraw';
 }
 
 // init db
@@ -28,16 +28,19 @@ if (isset($_POST["save"])) {
   $memo = $_POST["memo"];
 
   if($type == 'deposit') {
+    if (empty($account)) {
+      flash("You must select a account", "danger");
+      $hasError = true;
+  }
     $r = changeBalance($db, 1, $account, 'deposit', $balance, $memo);
   }
   if($type == 'withdraw')  {
     $r = changeBalance($db, $account, 1, 'withdraw', $balance, $memo);
   }
-
   if ($r) {
     flash("Successfully transaction.");
   } else {
-    flash("Error doing transaction!");
+    flash("Error !");
   }
 }
 
@@ -45,12 +48,12 @@ if (isset($_POST["save"])) {
 
 <h3 class="text-center mt-4"><?php echo(ucfirst($type)) ?></h3>
 
-<ul class="nav nav-pills justify-content-center mt-4 mb-2">
+<ul class="nav nav-pills mx-auto m-2 bg-danger mt-4 mb-2 ">
   <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
 </ul> 
 
-<form method="POST">
+<form method="POST" onsubmit="return validate(this);">
   <?php if (count($results) > 0): ?>
   <div class="form-group">
     <label for="account">Account</label>
@@ -76,8 +79,23 @@ if (isset($_POST["save"])) {
     <label for="memo">Memo</label>
     <textarea class="form-control" id="memo" name="memo" maxlength="250"></textarea>
   </div>
-  <button type="submit" name="save" value="Do Transaction" class="btn btn-success">Do Transaction</button>
+  <button type="submit" name="save" value="Submit" class="btn btn-success">Submit</button>
 </form>
-
+<script>
+function validate(form) {
+        let pw = form.balance.value;
+        let con = form.$result["balance"].value;
+        let isValid = true
+        if (pw > con) {
+            flash("Password and Confirm password must match", "warning");
+            isValid = false;
+        }
+        if (pw < con){
+          flash("Transaction Complete", "success");
+          isValid = false;
+        }
+        return isValid;
+    }
+</script>
 <?php require(__DIR__ . "/../../partials/flash.php");
  ?>

@@ -1,4 +1,6 @@
 <?php require(__DIR__ . "/../../partials/nav.php");
+require(__DIR__ . "/../../lib/functions.php");
+
  ?>
 <?php
 $query = "";
@@ -62,4 +64,4 @@ if (isset($user) && !empty($user)) {
             <p>No results</p>
         <?php endif; ?>
 </div>
-<?php require_once(__DIR__ . "/../../partials/flash.php");
+<?php require(__DIR__ . "/../../partials/flash.php");
