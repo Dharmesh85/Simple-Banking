@@ -33,7 +33,7 @@ require(__DIR__ . "/../../partials/nav.php");
     </div>
     
     <div class="col-md-3 mx-auto m-2 bg-danger " >
-    <li class="col-md-7  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('account_get_or_create.php'); ?>">Create Account</a></li>
+    <li class="col-md-7  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Create Account</a></li>
     </div>
 
 
