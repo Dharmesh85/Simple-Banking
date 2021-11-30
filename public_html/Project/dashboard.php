@@ -44,11 +44,11 @@ require(__DIR__ . "/../../partials/nav.php");
   <div class="container">
   <div class="row align-items-end">
     <div class="col-md-3 mx-auto m-2 bg-danger" >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="#"> Deposit</a></li>
+    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('Deposit_Withdraw.php'); ?>"> Deposit</a></li>
     </div>
  
     <div class="col-md-3 mx-auto m-2 bg-danger " >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap "  ><a class="nav-link" href="#">Withdraw</a></li>
+    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap "  ><a class="nav-link" href="<?php echo get_url('Deposit_Withdraw.php'); ?>">Withdraw</a></li>
     </div>
 
     <div class="col-md-3 mx-auto m-2 bg-danger" >
