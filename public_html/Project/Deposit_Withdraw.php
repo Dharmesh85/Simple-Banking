@@ -10,7 +10,7 @@ if (!is_logged_in()) {
 if (isset($_GET["type"])) {
   $type = $_GET["type"];
 } else {
-  $type = 'withdraw';
+  $type = 'deposit';
 }
 
 // init db
@@ -56,7 +56,17 @@ if (isset($_POST["save"])) {
 <form method="POST" onsubmit="return validate(this);">
   <?php if (count($results) > 0): ?>
   <div class="form-group">
-    <label for="account">Account</label>
+    <label for="account">From Account</label>
+    <select class="form-control" id="account" name="account">
+      <?php foreach ($results as $r): ?>
+      <option value="<?php echo($r["id"]); ?>">
+        <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
+      </option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="account">To Account</label>
     <select class="form-control" id="account" name="account">
       <?php foreach ($results as $r): ?>
       <option value="<?php echo($r["id"]); ?>">
@@ -87,7 +97,7 @@ function validate(form) {
         let con = form.$result["balance"].value;
         let isValid = true
         if (pw > con) {
-            flash("Password and Confirm password must match", "warning");
+            flash("You dont have the selected amount in your account", "warning");
             isValid = false;
         }
         if (pw < con){
