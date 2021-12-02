@@ -17,6 +17,14 @@ reset_session();
         <input type="text" name="username" required maxlength="30" />
     </div>
     <div>
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" required maxlength="30" />
+    </div>
+    <div>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" required maxlength="30" />
+    </div>
+    <div>
         <label for="pw">Password</label>
         <input type="password" id="pw" name="password" required minlength="8" />
     </div>
@@ -46,6 +54,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         false
     );
     $username = se($_POST, "username", "", false);
+    $firstname = se($_POST, "firstname", "", false);
+    $lastname = se($_POST, "lastname", "", false);
+
     //TODO 3
     $hasError = false;
     if (empty($email)) {
@@ -60,6 +71,14 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         $hasError = true;
     }
     if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $username)) {
+        flash("Username must only be alphanumeric and can only contain - or _", "danger");
+        $hasError = true;
+    }
+    if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $firstname)) {
+        flash("Username must only be alphanumeric and can only contain - or _", "danger");
+        $hasError = true;
+    }
+    if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $lastname)) {
         flash("Username must only be alphanumeric and can only contain - or _", "danger");
         $hasError = true;
     }
@@ -85,9 +104,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         //TODO 4
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $db = getDB();
-        $stmt = $db->prepare("INSERT INTO Users (email, password, username) VALUES(:email, :password, :username)");
+        $stmt = $db->prepare("INSERT INTO Users (email, password, username, _FirstName, _LastName) VALUES(:email, :password, :username, :firstname, :lastname)");
         try {
-            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username]);
+            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username, ":firstname" => $firstname,":lastname" => $lastname,  ]);
             flash("Successfully registered!");
         } catch (Exception $e) {
             users_check_duplicate($e->errorInfo);
