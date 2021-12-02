@@ -56,17 +56,7 @@ if (isset($_POST["save"])) {
 <form method="POST" onsubmit="return validate(this);">
   <?php if (count($results) > 0): ?>
   <div class="form-group">
-    <label for="account">From Account</label>
-    <select class="form-control" id="account" name="account">
-      <?php foreach ($results as $r): ?>
-      <option value="<?php echo($r["id"]); ?>">
-        <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
-      </option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="account">To Account</label>
+    <label for="account"> Account</label>
     <select class="form-control" id="account" name="account">
       <?php foreach ($results as $r): ?>
       <option value="<?php echo($r["id"]); ?>">
