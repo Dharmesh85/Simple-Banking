@@ -33,7 +33,7 @@ if(isset($_POST["save"])){
  <title>Create Your Account</title>
 </head>
 
-<h1 style="text-align:Center"font:size 18px >Create A Account</h1>
+<h1 style="text-align:Center"font:size 18px >Create Account</h1>
 <ul class="nav navbar-brand mx-auto m-2 bg-danger mt-4 mb-4 ">
 <form method="POST" onsubmit="return validate(this)">
   <label> Account Number </label>
