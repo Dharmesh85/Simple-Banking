@@ -42,7 +42,10 @@ require_once(__DIR__ . "/../../lib/functions.php")
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <p>No results</p>
+        <p>You have no Accounts</p>
+        <div>
+            <a type="button" href="<?php echo get_url("create_account.php"); ?>">Create a Account</a>
+        </div>
     <?php endif; ?>
 </div>
 <?php 
