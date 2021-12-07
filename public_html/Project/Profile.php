@@ -116,27 +116,28 @@ if (isset($_POST["saved"])) {
   }
 }
 ?>
+<head>
+  <title>Profile</title>
 
-<h3 class="text-center mt-4">Profile</h3>
-
+  
+</head>
+<div class="h1 text-center bg-secondary text-white">Profile</div>
 <form method="POST">
-  <div class="form-group">
+  <div class="form-group bg-secondary text-white">
     <label for="email">Email Address</label>
     <input type="email" class="form-control" id="email" name="email" maxlength="100" required value="<?php echo(get_user_email()); ?>">
   </div>
-  <div class="form-group">
+  <div class="form-group bg-secondary text-white">
     <label for="username">Username</label>
     <input type="text" class="form-control" id="username" name="username" maxlength="60" required value="<?php echo(get_username()); ?>">
   </div>
-  <div class="row">
-    <div class="col-sm">
-      <div class="form-group">
+      <div class="form-group bg-secondary text-white">
         <label for="_FirstName">First Name</label>
         <input type="text" class="form-control" id="_FirstName" name="_FirstName" maxlength="60" required value="<?php echo(get_firstname()); ?>">
       </div>
     </div>
     <div class="row">
-      <div class="form-group">
+      <div class="form-group bg-secondary text-white">
         <label for="_LastName">Last Name</label>
         <input type="text" class="form-control" id="_LastName" name="_LastName" maxlength="60" required value="<?php echo(get_lastname()); ?>">
       </div>
@@ -144,14 +145,15 @@ if (isset($_POST["saved"])) {
   </div>
 
   <hr>
-  <h4 class="text-center">Change Password</h4>
+  <div class="h1 text-center bg-secondary text-white">Change Password</div>
+
 
   <!-- DO NOT PRELOAD PASSWORD-->
-  <div class="form-group">
+  <div class="form-group bg-secondary text-white">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" name="password" maxlength="60">
   </div>
-  <div class="form-group">
+  <div class="form-group bg-secondary text-white">
     <label for="confirm">Confirm Password</label>
     <input type="password" class="form-control" id="confirm" name="confirm" maxlength="60">
   </div>
