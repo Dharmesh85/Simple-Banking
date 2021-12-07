@@ -63,7 +63,7 @@ if (isset($_GET["id"])) {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   } else {
     $results = [];
-    flash("There was a problem fetching the results");
+    flash("There was a problem getting the results");
   }
 }
 ?>
