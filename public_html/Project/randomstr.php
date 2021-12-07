@@ -11,6 +11,6 @@ function get_random_str($length)
     //return bin2hex($bytes);
 
     //https://stackoverflow.com/a/40974772
-    return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 36)), 0, $length);
+    return substr(str_shuffle(str_repeat('0123456789', 36)), 0, $length);
 }
 ?>
