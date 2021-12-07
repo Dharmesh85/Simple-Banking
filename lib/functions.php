@@ -197,5 +197,7 @@ function changeBalance($db, $src, $dest, $type, $balChange, $memo = '') {
   
     return $transactions;
   }
+
+  
   
   ?>
