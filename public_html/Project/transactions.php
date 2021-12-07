@@ -1,67 +1,114 @@
-<?php require(__DIR__ . "/../../partials/nav.php");
+<?php
+require(__DIR__ . "/../../partials/nav.php");
 require_once(__DIR__ . "/../../lib/functions.php");
 
- ?>
-<?php
-$query = "";
-$results = [];
-$results2 = [];
-
-if(isset($_GET["id"])){ 
-  $user = $_GET["id"];
+if (!is_logged_in()) {
+  //this will redirect to login and kill the rest of this script (prevent it from executing)
+  flash("You don't have permission to access this page");
+  die(header("Location: login.php"));
 }
-else{
-  echo("The id was not pulled");
+if (isset($_GET["type"])) {
+  $type = $_GET["type"];
+} else {
+  $type = 'deposit';
+}
+// init db
+$user = get_user_id();
+$db = getDB();
+// Get user accounts
+$stmt = $db->prepare('SELECT * FROM Accounts WHERE user_id = :id ORDER BY id ASC');
+$stmt->execute([':id' => $user]);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if (isset($_POST["save"])) {
+  $account = $_POST["account"];
+  $balance = $_POST["balance"];
+  $memo = $_POST["memo"];
+
+  if($type == 'deposit') {
+    $account = $_POST["account"];
+    $r = changeBalance($db, 1, $account, 'deposit', $balance, $memo);
+  }
+  if($type == 'withdraw')  {
+    $account = $_POST["account"];
+    $stmt = $db->prepare('SELECT balance FROM Accounts WHERE id = :id');
+    $stmt->execute([':id' => $account]);
+    $acct = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($acct["balance"] < $balance) {
+      flash("Not enough funds to withdraw!");
+      die(header("Location: transaction.php?type=withdraw"));
+    }
+    $r = changeBalance($db, $account, 1, 'withdraw', $balance, $memo);
+  }
+  if($type == 'transfer')  {
+    $account_src = $_POST["account_src"];
+    $account_dest = $_POST["account_dest"];
+    if($account_src == $account_dest){
+      flash("Cannot transfer to same account!");
+      die(header("Location: transaction.php?type=transfer"));
+    }
+    $stmt = $db->prepare('SELECT balance FROM Accounts WHERE id = :id');
+    $stmt->execute([':id' => $account_src]);
+    $acct = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($acct["balance"] < $balance) {
+      flash("Not enough funds to transfer!");
+      die(header("Location: transaction.php?type=transfer"));
+    }
+    $r = changeBalance($db, $account_src, $account_dest, 'transfer', $balance, $memo);
+  }
+
+  if ($r) {
+    flash("Successfully executed transaction.");
+  } else {
+    flash("Error doing transaction!");
+  }
 }
 ?>
+<h3 class="text-center mt-4"><?php echo(ucfirst($type)) ?></h3>
+<ul class="nav nav-pills bg-danger justify-content-center mt-4 mb-2">
+  <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
+  <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
+  <li class="nav-item"><a class="nav-link <?php echo $type == 'transfer' ? 'active' : ''; ?>" href="?type=transfer">Transfer</a></li>
+</ul> 
 
-<?php
-if (isset($user) && !empty($user)) {
-    $db = getDB();
-    $stmt=$db->prepare("SELECT amount, action_type, created, act_src_id, act_dest_id, Transactions.id as tranID FROM Transactions as Transactions JOIN Accounts ON Transactions.act_src_id = Accounts.id WHERE Accounts.id = :q LIMIT 10");
-    $r = $stmt->execute([ ":q" => $user]);
-    if ($r) {
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        flash("Results are successfull");
-    }
-    else {
-        flash("There was a problem listing your transactions");
-        echo var_export($stmt->errorInfo(), true);
-    }
-}
-?>
-
-
-<h3>List Transcations</h3>
-<div class="results">
-        <?php if (count($results) > 0): ?>
-            <div class="list-group">
-                <?php foreach ($results as $r): ?>
-                    <div class="list-group-item">
-                        <div>
-                            <div><strong>Action Type:</strong></div>
-                            <div><?php echo($r["action_type"]); ?></div>
-                        </div>
-                        <div>
-                            <div><strong>Source:</strong></div>
-                            <div><?php echo($r["act_src_id"]); ?></div>
-                        </div>
-                        <div>
-                            <div><strong>Destination:</strong></div>
-                            <div><?php echo($r["act_dest_id"]); ?></div>
-                        </div>
-                        <div>
-                            <div><strong>Amount:</strong></div>
-                            <div><?php echo($r["amount"]); ?></div>
-                        </div>
-                        <div>
-                            <a type="button" href="<?php echo get_url("view_transactions.php?id=" . $r["tranID"]); ?>">More Details</a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <p>No results</p>
-        <?php endif; ?>
-</div>
+<form method="POST" onsubmit="return validate(this);">
+  <?php if (count($results) > 0): ?>
+  <div class="form-group">
+    <label for="account">Account</label>
+    <select class="form-control" id="account" name="account">
+      <?php foreach ($results as $r): ?>
+      <option value="<?php echo($r["id"]); ?>">
+        <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
+      </option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+  <?php endif; ?>
+  <?php if (count($results) > 0 && $type == 'transfer'): ?>
+  <div class="form-group">
+    <label for="account">Account Destination</label>
+    <select class="form-control" id="account" name="account_dest">
+      <?php foreach ($results as $r): ?>
+      <option value="<?php echo($r["id"]); ?>">
+        <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
+      </option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+  <?php endif; ?>
+  <div class="form-group">
+    <label for="deposit">Amount</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <input type="number" class="form-control" id="deposit" min="0.00" name="balance" step="0.01" placeholder="0.00"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="memo">Memo</label>
+    <textarea class="form-control" id="memo" name="memo" maxlength="250"></textarea>
+  </div>
+  <button type="submit" name="save" value="Enter" class="btn btn-success">Enter</button>
+</form>
 <?php require(__DIR__ . "/../../partials/flash.php");

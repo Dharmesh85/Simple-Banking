@@ -48,7 +48,7 @@ if (isset($_POST["save"])) {
 
 <h3 class="text-center mt-4"><?php echo(ucfirst($type)) ?></h3>
 
-<ul class="nav nav-pills mx-auto m-2 bg-danger mt-4 mb-2 ">
+<ul class="nav nav-pills  m-2 bg-danger mt-4 mb-2 ">
   <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
 </ul> 
@@ -91,21 +91,5 @@ if (isset($_POST["save"])) {
   </div>
   <button type="submit" name="save" value="Submit" class="btn btn-success">Submit</button>
 </form>
-<script>
-function validate(form) {
-        let pw = form.balance.value;
-        let con = form.$result["balance"].value;
-        let isValid = true
-        if (pw > con) {
-            flash("You dont have the selected amount in your account", "warning");
-            isValid = false;
-        }
-        if (pw < con){
-          flash("Transaction Complete", "success");
-          isValid = false;
-        }
-        return isValid;
-    }
-</script>
 <?php require(__DIR__ . "/../../partials/flash.php");
  ?>
