@@ -1,30 +1,33 @@
 <?php
-require(__DIR__ . "/../../partials/nav.php");
+require_once(__DIR__ . "/../../partials/nav.php");
 require_once(__DIR__ . "/../../lib/functions.php");
+
 
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
   flash("You don't have permission to access this page");
   die(header("Location: login.php"));
 }
+
 if (isset($_GET["type"])) {
   $type = $_GET["type"];
 } else {
   $type = 'deposit';
 }
+
 // init db
 $user = get_user_id();
 $db = getDB();
+
 // Get user accounts
 $stmt = $db->prepare('SELECT * FROM Accounts WHERE user_id = :id ORDER BY id ASC');
 $stmt->execute([':id' => $user]);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST["save"])) {
-  $account = $_POST["account"];
   $balance = $_POST["balance"];
   $memo = $_POST["memo"];
-
+  
   if($type == 'deposit') {
     $account = $_POST["account"];
     $r = changeBalance($db, 1, $account, 'deposit', $balance, $memo);
@@ -56,26 +59,29 @@ if (isset($_POST["save"])) {
     }
     $r = changeBalance($db, $account_src, $account_dest, 'transfer', $balance, $memo);
   }
-
+  
   if ($r) {
     flash("Successfully executed transaction.");
   } else {
     flash("Error doing transaction!");
   }
 }
+
 ?>
+
 <h3 class="text-center mt-4"><?php echo(ucfirst($type)) ?></h3>
-<ul class="nav nav-pills bg-danger justify-content-center mt-4 mb-2">
+
+<ul class="nav nav-pills justify-content-center mt-4 mb-2">
   <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'transfer' ? 'active' : ''; ?>" href="?type=transfer">Transfer</a></li>
 </ul> 
 
-<form method="POST" onsubmit="return validate(this);">
+<form method="POST">
   <?php if (count($results) > 0): ?>
   <div class="form-group">
-    <label for="account">Account</label>
-    <select class="form-control" id="account" name="account">
+    <label for="account"><?php echo $type == 'transfer' ? 'Account Source' : 'Account'; ?></label>
+    <select class="form-control" id="account" name="<?php echo $type == 'transfer' ? 'account_src' : 'account'; ?>">
       <?php foreach ($results as $r): ?>
       <option value="<?php echo($r["id"]); ?>">
         <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
@@ -111,4 +117,5 @@ if (isset($_POST["save"])) {
   </div>
   <button type="submit" name="save" value="Enter" class="btn btn-success">Enter</button>
 </form>
-<?php require(__DIR__ . "/../../partials/flash.php");
+
+<?php require(__DIR__ . "/../../partials/flash.php"); ?>

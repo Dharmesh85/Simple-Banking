@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <?php require(__DIR__ . "/../../partials/nav.php");
 require_once(__DIR__ . "/../../lib/functions.php");
 
  ?>
 <?php
+=======
+<?php
+require(__DIR__ . "/../../partials/nav.php");
+require_once(__DIR__ . "/../../lib/functions.php");
+?>
+<?php
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -63,7 +71,11 @@ if (isset($_GET["id"])) {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   } else {
     $results = [];
+<<<<<<< HEAD
     flash("There was a problem getting the results");
+=======
+    flash("There was a problem fetching the results");
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
   }
 }
 ?>
@@ -79,6 +91,11 @@ if (isset($_GET["id"])) {
         <th scope="col">Change</th>
         <th scope="col">Memo</th>
         <th scope="col">Balance</th>
+<<<<<<< HEAD
+=======
+        <th scope="col">Time</th>
+
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
       </tr>
     </thead>
     <tbody>
@@ -90,6 +107,11 @@ if (isset($_GET["id"])) {
         <td>$<?php echo($r["amount"]); ?></td>
         <td><?php echo($r["memo"]); ?></td>
         <td>$<?php echo($r["expected_total"]); ?></td>
+<<<<<<< HEAD
+=======
+        <td><?php echo($r["created"]); ?></td>
+
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
       </tr>
   <?php endforeach; ?>
     </tbody>
@@ -112,4 +134,8 @@ if (isset($_GET["id"])) {
     </ul>
 </nav>
 
+<<<<<<< HEAD
 <?php require(__DIR__ . "/../../partials/flash.php");
+=======
+<?php require(__DIR__ . "/../../partials/flash.php"); ?>
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3

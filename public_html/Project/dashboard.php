@@ -25,34 +25,34 @@ require(__DIR__ . "/../../partials/nav.php");
 
 
 <ul class="list-unstyled">
-<div class="container">
-  <div class="row align-items-start">
-    <div class="col-md-3 mx-auto m-2 bg-danger ">
-    <li class="col-md-5  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('profile.php');?>">Profile</a></li>
+<div class="container ">
+  <div class="row align-items-start ">
+    <div class="col-md-3 mx-auto m-2  bg-dark ">
+    <li class="col-md-5  mx-auto m-2  bg-dark text-nowrap "  ><a class="nav-link"  href="<?php echo get_url('profile.php');?>">Profile</a></li>
     
     </div>
     
-    <div class="col-md-3 mx-auto m-2 bg-danger " >
-    <li class="col-md-7  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Create Account</a></li>
+    <div class="col-md-3 mx-auto m-2  bg-dark " >
+    <li class="col-md-7  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Create Account</a></li>
     </div>
 
 
-    <div class="col-md-3 mx-auto m-2 bg-danger" >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url('list_accounts.php'); ?>">My Accounts</a></li>
+    <div class="col-md-3 mx-auto m-2  bg-dark" >
+    <li class="col-md-6  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="<?php echo get_url('list_accounts.php'); ?>">My Accounts</a></li>
     </div>
   </div>
   <div class="container">
   <div class="row align-items-end">
-    <div class="col-md-3 mx-auto m-2 bg-danger" >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="<?php echo get_url("transactions.php"); ?>"> Deposit</a></li>
+    <div class="col-md-3 mx-auto m-2  bg-dark" >
+    <li class="col-md-6  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="<?php echo get_url("transactions.php"); ?>"> Deposit</a></li>
     </div>
  
-    <div class="col-md-3 mx-auto m-2 bg-danger " >
-    <li class="col-md-6  mx-auto m-2 bg-danger text-nowrap "  ><a class="nav-link" href="<?php echo get_url("transactions.php"); ?>">Withdraw</a></li>
+    <div class="col-md-3 mx-auto m-2  bg-dark " >
+    <li class="col-md-6  mx-auto m-2  bg-dark text-nowrap "  ><a class="nav-link" href="<?php echo get_url("transactions.php"); ?>">Withdraw</a></li>
     </div>
 
-    <div class="col-md-3 mx-auto m-2 bg-danger" >
-    <li class="col-md-5  mx-auto m-2 bg-danger text-nowrap"  ><a class="nav-link" href="transactions.php">Transfer</a></li>
+    <div class="col-md-3 mx-auto m-2  bg-dark" >
+    <li class="col-md-5  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="transactions.php">Transfer</a></li>
     </div>
 </div>
 

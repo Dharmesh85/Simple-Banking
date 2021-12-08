@@ -29,7 +29,7 @@ require_once(__DIR__ . "/../lib/functions.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="styles.css">
 <script src="helpers.js"></script>
-<nav class="navbar navbar-expand- navbar-light bg-danger">
+<nav class="navbar navbar-- navbar-dark bg-dark">
     
     <div class="container-fluid">
         
@@ -50,29 +50,25 @@ require_once(__DIR__ . "/../lib/functions.php");
                     <li class="navbar-brand "><a class="nav-link" href="<?php echo get_url('login.php'); ?>">Login</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('register.php'); ?>">Register</a></li>
                 <?php endif; ?>
-                <?php if (has_role("Admin")) : ?>
+                <?php if (has_role("admin")) : ?>
                     <li class="nav-item dropdown" class="navbar-brand">
                         <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Roles
                         </a>
-                        <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
                         <ul class="dropdown-menu bg-warning" aria-labelledby="rolesDropdown">
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/create_role.php'); ?>">Create</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/list_roles.php'); ?>">List</a></li>
                             <li><a class="dropdown-item" href="<?php echo get_url('admin/assign_roles.php'); ?>">Assign</a></li>
                             <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>">Account</a></li>
                 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo get_url('Deposit_Withdraw.php'); ?>">Deposit</a>
-                            <a class="dropdown-item" href="<?php echo get_url('Deposit_Withdraw.php'); ?>">Withdraw</a>
-                        </div>
+    
                     </li>
 
                         </ul>
                     </li>
                 <?php endif; ?>
                 <?php if (is_logged_in()) : ?>
-                    <form class="navbar-brand"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a>
+                    <li><a class="navbar-brand"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>">Logout</a></li>
                 <?php endif; ?>
             </ul>
         </div>

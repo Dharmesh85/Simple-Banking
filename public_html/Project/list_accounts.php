@@ -23,6 +23,7 @@ if ($r) {
     <h3 class="text-center mt-4 mb-4">Accounts</h3>
 
     <?php if (count($results) > 0): ?>
+<<<<<<< HEAD
       <table class="table">
         <thead>
           <tr>  
@@ -43,6 +44,30 @@ if ($r) {
       <?php endforeach; ?>
         </tbody>
       </table>
+=======
+        <div class="list-group">
+            <?php foreach ($results as $r): ?>
+                <div class="list-group-item">
+                    <div>
+                        <div><strong>Account Number:</strong></div>
+                        <div><?php echo($r["account_number"]); ?></div>
+                    </div>
+                    <div>
+                        <div><strong>Account Type:</strong></div>
+                        <div><?php echo($r["account_type"]); ?></div>
+                    </div>
+                    <div>
+                        <div><strong>Balance:</strong></div>
+                        <div><?php echo($r["balance"]); ?></div>
+                    </div>
+                    <div>
+                        
+                        <a type="button" href="<?php echo get_url("view_transactions.php?id=" . $r["AccID"]); ?>">View Transaction History</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+>>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
     <?php else: ?>
       <p>You don't have any accounts.</p>
       <a href="create_account.php?id=<?php echo($r["id"]); ?>" class="btn btn-success">Create Account</a>

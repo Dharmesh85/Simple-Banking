@@ -29,11 +29,11 @@ if (!is_logged_in())
     </div>
     <small id="depositHelp" class="form-text text-muted">Minimum $5.00 deposit required.</small>
   </div>
-  <button type="submit" name="save" value="create" class="btn btn-primary">Create</button>
+  <button type="submit" name="create" value="create" class="btn btn-primary">Create</button>
 </form>
 
 <?php
-if (isset($_POST["save"])) {
+if (isset($_POST["create"])) {
   $db = getDB();
   $check = $db->prepare('SELECT account_number FROM Accounts WHERE account_number = :q');
   do {
@@ -63,7 +63,7 @@ if (isset($_POST["save"])) {
   if ($r) {
     changeBalance($db, 1, $db->lastInsertId(), 'deposit', $balance, 'New account deposit');
     flash("Account created successfully with Number: " . $account_number);
-    die(header("Location: accounts.php"));
+    die(header("Location: list_accounts.php"));
   } else {
     flash("Error creating account");
   }
