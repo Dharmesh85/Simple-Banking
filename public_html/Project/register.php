@@ -17,12 +17,12 @@ reset_session();
         <input type="text" name="username" required maxlength="30" />
     </div>
     <div>
-        <label for="firstname">First Name</label>
-        <input type="text" name="firstname" required maxlength="30" />
+        <label for="_FirstName">First Name</label>
+        <input type="text" name="_FirstName" required maxlength="30" />
     </div>
     <div>
-        <label for="lastname">Last Name</label>
-        <input type="text" name="lastname" required maxlength="30" />
+        <label for="_LastName">Last Name</label>
+        <input type="text" name="_LastName" required maxlength="30" />
     </div>
     <div>
         <label for="pw">Password</label>
@@ -54,8 +54,8 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         false
     );
     $username = se($_POST, "username", "", false);
-    $firstname = se($_POST, "firstname", "", false);
-    $lastname = se($_POST, "lastname", "", false);
+    $firstname = se($_POST, "_FirstName", "", false);
+    $lastname = se($_POST, "_LastName", "", false);
 
     //TODO 3
     $hasError = false;
@@ -104,9 +104,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         //TODO 4
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $db = getDB();
-        $stmt = $db->prepare("INSERT INTO Users (email, password, username, _FirstName, _LastName) VALUES(:email, :password, :username, :firstname, :lastname)");
+        $stmt = $db->prepare("INSERT INTO Users (email, password, username, _FirstName, _LastName) VALUES(:email, :password, :username, :_FirstName, :_LastName)");
         try {
-            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username, ":firstname" => $firstname,":lastname" => $lastname,  ]);
+            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username, ":_FirstName" => $firstname,":_LastName" => $lastname,  ]);
             flash("Successfully registered!");
         } catch (Exception $e) {
             users_check_duplicate($e->errorInfo);
