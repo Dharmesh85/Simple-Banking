@@ -38,30 +38,31 @@ if (isset($_POST["save"])) {
     $stmt->execute([':id' => $account]);
     $acct = $stmt->fetch(PDO::FETCH_ASSOC);
     if($acct["balance"] < $balance) {
-      flash("Not enough funds to withdraw!");
-      die(header("Location: transaction.php?type=withdraw"));
+      flash("Not enough funds to withdraw!", "warning");
+      header("Location: transactions.php?type=withdraw");
     }
     $r = changeBalance($db, $account, 1, 'withdraw', $balance, $memo);
+    
   }
   if($type == 'transfer')  {
     $account_src = $_POST["account_src"];
     $account_dest = $_POST["account_dest"];
     if($account_src == $account_dest){
-      flash("Cannot transfer to same account!");
-      die(header("Location: transaction.php?type=transfer"));
+      flash("Cannot transfer to same account!", "warning");
+      die(header("Location: transactions.php?type=transfer"));
     }
     $stmt = $db->prepare('SELECT balance FROM Accounts WHERE id = :id');
     $stmt->execute([':id' => $account_src]);
     $acct = $stmt->fetch(PDO::FETCH_ASSOC);
     if($acct["balance"] < $balance) {
-      flash("Not enough funds to transfer!");
+      flash("Not enough funds to transfer!", "warning");
       die(header("Location: transaction.php?type=transfer"));
     }
     $r = changeBalance($db, $account_src, $account_dest, 'transfer', $balance, $memo);
   }
   
   if ($r) {
-    flash("Successfully executed transaction.");
+    flash("Successfully executed transaction.", "success");
   } else {
     flash("Error doing transaction!");
   }
