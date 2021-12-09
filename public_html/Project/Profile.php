@@ -72,9 +72,9 @@ if (isset($_POST["saved"])) {
       ":_LastName" => $_POST["LastName"]
     ]);
     if ($r) {
-      flash("Updated profile");
+      flash("Updated profile", "success");
     } else {
-      flash("Error updating profile");
+      flash("Error updating profile", "danger");
     }
     //password is optional, so check if it's even set
     //if so, then check if it's a valid reset request
@@ -88,9 +88,9 @@ if (isset($_POST["saved"])) {
         );
         $r = $stmt->execute([":id" => get_user_id(), ":password" => $hash]);
         if ($r) {
-          flash("Reset Password.");
+          flash("Reset Password.", "success");
         } else {
-          flash("Error resetting password!");
+          flash("Error resetting password!", "danger");
         }
       }
     }
