@@ -50,7 +50,7 @@ require_once(__DIR__ . "/../lib/functions.php");
                     <li class="navbar-brand "><a class="nav-link" href="<?php echo get_url('login.php'); ?>">Login</a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('register.php'); ?>">Register</a></li>
                 <?php endif; ?>
-                <?php if (has_role("admin")) : ?>
+                <?php if (has_role("Admin")) : ?>
                     <li class="nav-item dropdown" class="navbar-brand">
                         <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin Roles
