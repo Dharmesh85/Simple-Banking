@@ -34,15 +34,15 @@ if (isset($_POST["save"])) {
     die(header("Location: transaction_out.php"));
   }
 
-  $stmt = $db->prepare('SELECT Accounts.id, Users.username FROM Accounts JOIN Users ON Accounts.user_id = Users.id WHERE Users.last_name = :last_name AND Accounts.account_number LIKE :last_four');
+  $stmt = $db->prepare('SELECT Accounts.id, Users.username FROM Accounts JOIN Users ON Accounts.user_id = Users.id WHERE Users._LastName = :_LastName AND Accounts.account_number LIKE :last_four');
   $stmt->execute([
-    ':last_name' => $last_name,
+    ':_LastName' => $last_name,
     ':last_four' => "%$last_four"
   ]);
   $account_dest = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  if($account_src == $account_dest["id"] || $account_dest["username"] == get_username()) {
-    flash("Cannot transfer to the same user!");
+  if($account_src == $account_dest) {
+    flash("Cannot transfer to the same user!", "Warning");
     die(header("Location: transaction_out.php"));
   }
   $stmt = $db->prepare('SELECT balance FROM Accounts WHERE id = :id');
@@ -52,7 +52,7 @@ if (isset($_POST["save"])) {
     flash("Not enough funds to transfer!");
     die(header("Location: transaction.php?type=transfer"));
   }
-  $r = changeBalance($db, $account_src, $account_dest["id"], 'ext-transfer', $balance, $memo);
+  $r = changeBalance($db, $account_src, $account_dest, 'ext-transfer', $balance, $memo);
   
   if ($r) {
     flash("Successfully executed transaction.", "success");
@@ -62,13 +62,24 @@ if (isset($_POST["save"])) {
 }
 
 ?>
-
-<h3 class="text-center mt-4">Transfer Out</h3>
+<head>
+  <title>Transfer Accounts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=3">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</head>
+<div class="jumbotron text-center">
+  <h1> Transfer Out </h1>
+</div>
 
 <form method="POST">
   <?php if (count($results) > 0): ?>
-  <div class="form-group">
-    <label for="account">Account Source</label>
+    <div class="container-fluid text-center ">
+    <div class="mx-auto" style="width:325px;">
+  <label class="form-label" for="account">Account Source</label>
     <select class="form-control" id="account" name="account_src">
       <?php foreach ($results as $r): ?>
       <option value="<?php echo($r["id"]); ?>">
@@ -81,20 +92,24 @@ if (isset($_POST["save"])) {
   </div>
   <?php endif; ?>
   <div class="row">
-    <div class="col-sm">
-      <div class="form-group">
+  <div class="container-fluid text-center ">
+    <div class="mx-auto" style="width:325px;">
+      <div class="form-lable">
         <label for="last_name">Destination User Last Name</label>
         <input type="text" class="form-control" id="last_name" name="last_name" maxlength="60" required placeholder="Last Name">
       </div>
     </div>
-    <div class="col-sm">
-      <div class="form-group">
+    <div class="container-fluid text-center ">
+    <div class="mx-auto" style="width:325px;">
+      <div class="form-lable">
         <label for="last_four">Destination User Last 4 Digits</label>
         <input type="number" class="form-control" id="last_four" name="last_four" min="0" max="9999" required placeholder="XXXX">
       </div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="container-fluid text-center ">
+    <div class="mx-auto" style="width:325px;">
+      <div class="form-lable">
     <label for="deposit">Amount</label>
     <div class="input-group">
       <div class="input-group-prepend">
@@ -103,11 +118,14 @@ if (isset($_POST["save"])) {
       <input type="number" class="form-control" id="deposit" min="0.00" name="balance" step="0.01" placeholder="0.00"/>
     </div>
   </div>
-  <div class="form-group">
+  <div class="container-fluid text-center ">
+    <div class="mx-auto" style="width:300px;">
+      <div class="form-lable">
     <label for="memo">Memo</label>
     <textarea class="form-control" id="memo" name="memo" maxlength="250"></textarea>
   </div>
-  <button type="submit" name="save" value="Do Transaction" class="btn btn-success">Enter</button>
+  
+  <button type="submit" name="save" value="Enter" class="btn btn-success">Enter</button>
 </form>
 
 <?php require(__DIR__ . "/../../partials/flash.php"); ?>
