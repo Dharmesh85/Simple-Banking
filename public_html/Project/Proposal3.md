@@ -1,9 +1,9 @@
-# Project Name: (Which Project)
-## Project Summary: (Copy from proposal)
-## Github Link: (Prod Branch of Project Folder)
-## Project Board Link: 
-## Website Link: (Heroku Prod of Project folder)
-## Your Name:
+# Project Name: 
+## Project Summary: This project will create a bank simulation for users. They’ll be able to have various accounts, do standard bank functions like deposit, withdraw, internal (user’s accounts)/external(other user’s accounts) transfers, and creating/closing accounts.
+## Github Link: https://github.com/Dharmesh85/IT202-011/tree/prod/public_html/Project
+## Project Board Link: https://github.com/Dharmesh85/IT202-011/projects/3
+## Website Link: https://dbp64.herokuapp.com/Project/login.php
+## Your Name: Dharmesh Patel
 
 <!--
 ### Line item / Feature template (use this for each bullet point)
@@ -26,47 +26,51 @@
 - Milestone 2
 - Milestone 3
 
-- [x] \(mm/dd/yyyy of completion) User will be able to transfer between their accounts
+- [x] (12/07/2021) User will be able to transfer between their accounts
   -  List of Evidence of Feature Completion
     - Status: Completed
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 
+    - Direct Link: https://dbp64.herokuapp.com/Project/transactions.php?type=transfer
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/83
     - Screenshots
       - Screenshot #1 <img width="983" alt="Screen Shot 2021-12-10 at 10 10 14 PM" src="https://user-images.githubusercontent.com/77698793/145661796-812bdf9c-fb0d-4746-96bd-fa4b9ca1fa87.png">
         - Screenshot #1 Dropdown of source account and dest account; memo
       - Screenshot #2 <img width="868" alt="Screen Shot 2021-12-10 at 10 11 49 PM" src="https://user-images.githubusercontent.com/77698793/145661828-d80b78a4-e0ba-49ee-9791-c0f9fca60d16.png">
         - Screenshot #2  amount must be positive
 
-- [x] \(mm/dd/yyyy of completion) Transaction History page
+- [x] (12/07/2021) Transaction History page
   -  List of Evidence of Feature Completion
     - Status: Partially working
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/view_transactions.php?id=1&page=1
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/80
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 <img width="1434" alt="Screen Shot 2021-12-10 at 10 51 58 PM" src="https://user-images.githubusercontent.com/77698793/145662812-cd232f35-7324-4c14-b483-d0351e9a5d08.png">
+        - Screenshot #1 Move to different page after 10 transactions; show 10 latest transactions
 
-- [x] \(mm/dd/yyyy of completion) User’s profile page should record/show First and Last name
+- [x] (12/02/2021) User’s profile page should record/show First and Last name
   -  List of Evidence of Feature Completion
     - Status: Partially working
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/Profile.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/79
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 <img width="1440" alt="Screen Shot 2021-12-10 at 10 58 49 PM" src="https://user-images.githubusercontent.com/77698793/145662970-d77bbfa8-52eb-4a49-a0d2-b140959537fd.png">
+        - Screenshot #1 edit name in profile page(issue in data base works on register page but not on profile)
+      - Screenshot #2 <img width="1439" alt="Screen Shot 2021-12-10 at 10 59 32 PM" src="https://user-images.githubusercontent.com/77698793/145662992-48233245-02a7-4386-886a-a7834747250f.png">
+        - Screenshot #2 add name when registering
 
-- [x] \(mm/dd/yyyy of completion) User will be able to transfer funds to another user’s account
+- [x] \(12/10/2021) User will be able to transfer funds to another user’s account
   -  List of Evidence of Feature Completion
     - Status: Partially working 
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://dbp64.herokuapp.com/Project/transfer_other_acct.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/86
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 <img width="1440" alt="Screen Shot 2021-12-10 at 11 03 28 PM" src="https://user-images.githubusercontent.com/77698793/145663102-92127c93-b520-40d2-8288-46c2923fc142.png">
+        - Screenshot #1 Transfer to other user account
+      - Screenshot #2 <img width="690" alt="Screen Shot 2021-12-10 at 11 09 21 PM" src="https://user-images.githubusercontent.com/77698793/145663277-220168ff-bfcf-42e5-af78-6bffa1fab959.png">
+        - Screenshot #2 Code used for transaction 
+
 - Milestone 4
 ### Intructions
 #### Don't delete this
