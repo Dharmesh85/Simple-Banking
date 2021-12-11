@@ -1,4 +1,5 @@
-<?php require_once(__DIR__ . "/../../partials/nav.php");
+<?php 
+require_once(__DIR__ . "/../../partials/nav.php");
 ?>
 <?php
 if (!is_logged_in()) {
@@ -23,28 +24,6 @@ if ($r) {
     <h3 class="text-center mt-4 mb-4">Accounts</h3>
 
     <?php if (count($results) > 0): ?>
-<<<<<<< HEAD
-      <table class="table">
-        <thead>
-          <tr>  
-            <th scope="col">Account Number</th>
-            <th scope="col">Account Type</th>
-            <th scope="col">Balance</th>
-            <th scope="col">History</th>
-          </tr>
-        </thead>
-        <tbody>
-      <?php foreach ($results as $r): ?>
-          <tr>
-            <th scope="row"><?php echo($r["account_number"]); ?></th>
-            <td><?php echo(ucfirst($r["account_type"])); ?></td>
-            <td>$<?php echo($r["balance"]); ?><br><small>As of <?php echo($r["last_updated"]); ?></small></td>
-            <td><a href="view_transactions.php?id=<?php echo($r["id"]); ?>" class="btn btn-success">View Transactions</a></td>
-          </tr>
-      <?php endforeach; ?>
-        </tbody>
-      </table>
-=======
         <div class="list-group">
             <?php foreach ($results as $r): ?>
                 <div class="list-group-item">
@@ -67,7 +46,6 @@ if ($r) {
                 </div>
             <?php endforeach; ?>
         </div>
->>>>>>> c629bf12978962f13169b1c6d2e1e76e85a56bd3
     <?php else: ?>
       <p>You don't have any accounts.</p>
       <a href="create_account.php?id=<?php echo($r["id"]); ?>" class="btn btn-success">Create Account</a>
