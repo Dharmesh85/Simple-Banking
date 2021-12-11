@@ -26,9 +26,21 @@
 - Milestone 2
 - Milestone 3
 
-- [ ] \(mm/dd/yyyy of completion) User will be able to transfer between their accounts
+- [x] \(mm/dd/yyyy of completion) User will be able to transfer between their accounts
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Completed
+    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Pull Requests
+      - PR link #1 
+    - Screenshots
+      - Screenshot #1 <img width="983" alt="Screen Shot 2021-12-10 at 10 10 14 PM" src="https://user-images.githubusercontent.com/77698793/145661796-812bdf9c-fb0d-4746-96bd-fa4b9ca1fa87.png">
+        - Screenshot #1 Dropdown of source account and dest account; memo
+      - Screenshot #2 <img width="868" alt="Screen Shot 2021-12-10 at 10 11 49 PM" src="https://user-images.githubusercontent.com/77698793/145661828-d80b78a4-e0ba-49ee-9791-c0f9fca60d16.png">
+        - Screenshot #2  amount must be positive
+
+- [x] \(mm/dd/yyyy of completion) Transaction History page
+  -  List of Evidence of Feature Completion
+    - Status: Partially working
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
@@ -36,9 +48,9 @@
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
 
-- [ ] \(mm/dd/yyyy of completion) Transaction History page
+- [x] \(mm/dd/yyyy of completion) User’s profile page should record/show First and Last name
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Partially working
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
@@ -46,19 +58,9 @@
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
 
-- [ ] \(mm/dd/yyyy of completion) User’s profile page should record/show First and Last name
+- [x] \(mm/dd/yyyy of completion) User will be able to transfer funds to another user’s account
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-
-- [ ] \(mm/dd/yyyy of completion) User will be able to transfer funds to another user’s account
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Partially working 
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
