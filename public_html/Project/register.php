@@ -5,23 +5,51 @@ reset_session();
 <head>
   <title>Register</title>
 </head>
-<h1>Register</h1>
+<meta name="viewport" content="width=device-width, initial-scale=2">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <div class="jumbotron text-center">
+  <h1>Register</h1>
+</div>
 
 <form onsubmit="return validate(this)" method="POST">
     <div>
-        <label for="email">Email</label>
+        <div class="mx-auto" style="width: 270px;">
+    <div class="mx-auto" style="width: 270px;">
+        <label for="email"><h3>Email</h3></label>
         <input type="email" name="email" required />
     </div>
     <div>
-        <label for="username">Username</label>
+          <div class="mx-auto" style="width: 270px;">
+
+        <label for="username"><h3>Username</h3></label>
         <input type="text" name="username" required maxlength="30" />
     </div>
     <div>
-        <label for="pw">Password</label>
+          <div class="mx-auto" style="width: 270px;">
+
+        <label for="_FirstName"><h3>First Name</h3></label>
+        <input type="text" name="_FirstName" required maxlength="30" />
+    </div>
+    <div>
+          <div class="mx-auto" style="width: 270px;">
+
+        <label for="_LastName"><h3>Last Name</h3></label>
+        <input type="text" name="_LastName" required maxlength="30" />
+    </div>
+    <div>
+          <div class="mx-auto" style="width: 270px;">
+
+        <label for="pw"><h3>Password</h3></label>
         <input type="password" id="pw" name="password" required minlength="8" />
     </div>
     <div>
-        <label for="confirm">Confirm</label>
+          <div class="mx-auto" style="width: 270px;">
+
+        <label for="confirm"><h3>Confirm</h3></label>
         <input type="password" name="confirm" required minlength="8" />
     </div>
     <input type="submit" value="Register" />
@@ -46,6 +74,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         false
     );
     $username = se($_POST, "username", "", false);
+    $firstname = se($_POST, "_FirstName", "", false);
+    $lastname = se($_POST, "_LastName", "", false);
+
     //TODO 3
     $hasError = false;
     if (empty($email)) {
@@ -60,6 +91,14 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         $hasError = true;
     }
     if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $username)) {
+        flash("Username must only be alphanumeric and can only contain - or _", "danger");
+        $hasError = true;
+    }
+    if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $firstname)) {
+        flash("Username must only be alphanumeric and can only contain - or _", "danger");
+        $hasError = true;
+    }
+    if (!preg_match('/^[a-z0-9_-]{3,16}$/i', $lastname)) {
         flash("Username must only be alphanumeric and can only contain - or _", "danger");
         $hasError = true;
     }
@@ -85,9 +124,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
         //TODO 4
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $db = getDB();
-        $stmt = $db->prepare("INSERT INTO Users (email, password, username) VALUES(:email, :password, :username)");
+        $stmt = $db->prepare("INSERT INTO Users (email, password, username, _FirstName, _LastName) VALUES(:email, :password, :username, :_FirstName, :_LastName)");
         try {
-            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username]);
+            $stmt->execute([":email" => $email, ":password" => $hash, ":username" => $username, ":_FirstName" => $firstname,":_LastName" => $lastname,  ]);
             flash("Successfully registered!");
         } catch (Exception $e) {
             users_check_duplicate($e->errorInfo);

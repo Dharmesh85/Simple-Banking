@@ -4,14 +4,28 @@ require(__DIR__ . "/../../partials/nav.php");
 <head>
   <title>Login</title>
 </head>
-<div class="container-fluid">
-    <h1>Login</h1>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+    
+
+<div class="jumbotron text-center">
+<h1>Login</h1>
+</div>
+<div class="container-fluid text-center ">
     <form onsubmit="return validate(this)" method="POST">
-        <div class="mb-3">
+        <div class="mx-auto" style="width: 200px;">
             <label class="form-label" for="email">Username/Email</label>
             <input class="form-control" type="text" id="email" name="email" required />
         </div>
-        <div class="mb-3">
+        <div class="mx-auto" style="width: 200px;">
             <label class="form-label" for="pw">Password</label>
             <input class="form-control" type="password" id="pw" name="password" required minlength="8" />
         </div>
@@ -72,7 +86,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                     $hash = $user["password"];
                     unset($user["password"]);
                     if (password_verify($password, $hash)) {
-                        flash("Welcome $email");
+                        flash("Welcome $email", "success");
                         $_SESSION["user"] = $user;
                         //lookup potential roles
                         $stmt = $db->prepare("SELECT Roles.name FROM Roles 
