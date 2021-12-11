@@ -116,47 +116,52 @@ if (isset($_POST["saved"])) {
   }
 }
 ?>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <head>
   <title>Profile</title>
 
   
 </head>
-<div class="h1 text-center bg-secondary text-white">Profile</div>
+<div class="h1 text-center  text-dark">Profile</div>
 <form method="POST">
-  <div class="form-group bg-secondary text-white">
-    <label for="email">Email Address</label>
+<div class="mx-auto" style="width: 200px;">
+   <label class="form-label" for="email">Email Address</label>
     <input type="email" class="form-control" id="email" name="email" maxlength="100" required value="<?php echo(get_user_email()); ?>">
   </div>
-  <div class="form-group bg-secondary text-white">
-    <label for="username">Username</label>
+  <div class="mx-auto" style="width: 200px;">
+   <label class="form-label" for="username">Username</label>
     <input type="text" class="form-control" id="username" name="username" maxlength="60" required value="<?php echo(get_username()); ?>">
   </div>
-      <div class="form-group bg-secondary text-white">
-        <label for="_FirstName">First Name</label>
+  <div class="mx-auto" style="width: 200px;">
+       <label class="form-label" for="_FirstName">First Name</label>
         <input type="text" class="form-control" id="_FirstName" name="_FirstName" maxlength="60" required value="<?php echo(get_firstname()); ?>">
       </div>
     </div>
     <div class="row">
-      <div class="form-group bg-secondary text-white">
-        <label for="_LastName">Last Name</label>
+    <div class="mx-auto" style="width: 200px;">
+       <label class="form-label" for="_LastName">Last Name</label>
         <input type="text" class="form-control" id="_LastName" name="_LastName" maxlength="60" required value="<?php echo(get_lastname()); ?>">
       </div>
     </div>
   </div>
 
   <hr>
-  <div class="h1 text-center bg-secondary text-white">Change Password</div>
+  <div class="h1 text-center  text-dark">Change Password</div>
 
 
   <!-- DO NOT PRELOAD PASSWORD-->
-  <div class="form-group bg-secondary text-white">
-    <label for="password">Password</label>
+  <div class="mx-auto" style="width: 200px;">
+   <label class="form-label" for="password">Password</label>
     <input type="password" class="form-control" id="password" name="password" maxlength="60">
   </div>
-  <div class="form-group bg-secondary text-white">
-    <label for="confirm">Confirm Password</label>
+  <div class="mx-auto" style="width: 200px;">
+   <label class="form-label" for="confirm">Confirm Password</label>
     <input type="password" class="form-control" id="confirm" name="confirm" maxlength="60">
   </div>
+  <div class="mx-auto" style="width: 100px;">
   <button type="submit" name="saved" value="Save Profile" class="btn btn-primary">Save Profile</button>
 </form>
 
