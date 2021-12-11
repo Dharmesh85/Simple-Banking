@@ -21,27 +21,40 @@ if ($r) {
   flash("There was a problem fetching the results");
 }
 ?>
-    <h3 class="text-center mt-4 mb-4">Accounts</h3>
+<meta name="viewport" content="width=device-width, initial-scale=3">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+    
+
+<div class="jumbotron text-center">
+  <h1> Accounts </h1>
+</div>
 
     <?php if (count($results) > 0): ?>
         <div class="list-group">
             <?php foreach ($results as $r): ?>
                 <div class="list-group-item">
                     <div>
-                        <div><strong>Account Number:</strong></div>
+                        <div><strong><h3>Account Number:</h3></strong></div>
                         <div><?php echo($r["account_number"]); ?></div>
                     </div>
                     <div>
-                        <div><strong>Account Type:</strong></div>
+                        <div><strong><h3>Account Type:</h3></strong></div>
                         <div><?php echo($r["account_type"]); ?></div>
                     </div>
                     <div>
-                        <div><strong>Balance:</strong></div>
+                        <div><strong><h3>Balance:</h3></strong></div>
                         <div><?php echo($r["balance"]); ?></div>
                     </div>
                     <div>
                         
-                        <a type="button" href="<?php echo get_url("view_transactions.php?id=" . $r["AccID"]); ?>">View Transaction History</a>
+                    <td><a href="view_transactions.php?id=<?php echo($r["id"]); ?>" class="btn btn-success">Transactions</a></td>
                     </div>
                 </div>
             <?php endforeach; ?>
