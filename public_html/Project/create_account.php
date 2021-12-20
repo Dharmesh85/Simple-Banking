@@ -13,10 +13,12 @@ if (!is_logged_in()) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <head>
   <title>Create Account</title>
-<h3 class="text-center mt-4">Create New Bank Account</h3>
-
+ <div class="jumbotron text-center">
+<h1>Create a New Account </h1>
+</div>
 <form method="POST">
   <div class="form-group">
+  <div class="mx-auto" style="width: 200px;">
     <label for="account_type"><span style="font-size:15px">Account Type</span></label>
     <select class="form-control" id="account_type" name="account_type">
       <option value="checking">Checking</option>
@@ -24,6 +26,7 @@ if (!is_logged_in()) {
 	  </select>
   </div>
   <div class="form-group">
+  <div class="mx-auto" style="width: 200px;">
     <label for="deposit"><span style="font-size:15px">Deposit</span></label>
     <div class="input-group">
       <div class="input-group-prepend">
@@ -33,6 +36,7 @@ if (!is_logged_in()) {
     </div>
     <small id="depositHelp" class="form-text text-muted">Minimum $5.00 deposit required.</small>
   </div>
+  <div class="mx-auto" style="width: 50px;">
   <button type="submit" name="save" value="create" class="btn btn-primary">Create</button>
 </form>
 

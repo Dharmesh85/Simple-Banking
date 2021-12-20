@@ -17,7 +17,7 @@ $user = get_user_id();
 $db = getDB();
 
 // Get user accounts
-$stmt = $db->prepare('SELECT * FROM Accounts WHERE user_id = :id ORDER BY id ASC');
+$stmt = $db->prepare("SELECT * FROM Accounts WHERE user_id = :id AND Accounts.account_type NOT LIKE 'loan' ORDER BY id ASC");
 $stmt->execute([':id' => $user]);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,7 +31,11 @@ if (isset($_POST["save"])) {
 
   if(strlen($last_four) != 4){
     flash("Please enter last 4 digits of the destination account.", "warning");
-    die(header("Location: transaction_out.php"));
+    die(header("Location: transaction_other_acct.php"));
+  }
+  if($account_dest["account_type"] == "loan") {
+    flash("Cannot transfer to a loan account!");
+    die(header("Location: transaction_other_acct.php"));
   }
 
   $stmt = $db->prepare('SELECT Accounts.id, Users.username FROM Accounts JOIN Users ON Accounts.user_id = Users.id WHERE Users._LastName = :_LastName AND Accounts.account_number LIKE :last_four');

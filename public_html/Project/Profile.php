@@ -1,4 +1,5 @@
-<?php require(__DIR__ . "/../../partials/nav.php");
+<?php 
+require(__DIR__ . "/../../partials/nav.php");
 require_once(__DIR__ . "/../../lib/functions.php");
 ?>
 <?php
@@ -128,7 +129,10 @@ if (isset($_POST["saved"])) {
 
   
 </head>
-<div class="h1 text-center  text-dark">Profile</div>
+
+<div class="jumbotron text-center">
+<h1>Profile</h1>
+</div>
 <form method="POST">
 <div class="mx-auto" style="width: 200px;">
    <label class="form-label" for="email"><span style="font-size:15px">Email</span> </label>
