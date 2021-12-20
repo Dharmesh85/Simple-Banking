@@ -77,7 +77,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if (!$hasError) {
         //TODO 4
         $db = getDB();
-        $stmt = $db->prepare("SELECT id, email, username, password from Users where email = :email OR username = :email");
+        $stmt = $db->prepare("SELECT id, email, username, password, _FirstName, _LastName, privacy from Users WHERE email = :email LIMIT 1");
         try {
             $r = $stmt->execute([":email" => $email]);
             if ($r) {
