@@ -3,7 +3,7 @@ ob_start();
 require(__DIR__ . "/../../partials/nav.php");
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You don't have permission to access this page");
+  flash("You don't have permission to access this page","danger");
   die(header("Location: login.php"));
 }
 
@@ -40,7 +40,7 @@ if (isset($_POST["save"])) {
   $r = $stmt->execute([ ":id" => $id ]);
   if ($r) {
     flash("Account ".$account["account_number"]." successfully closed.");
-    die(header("Location: accounts.php"));
+    die(header("Location: list_accounts.php"));
   } else {
     flash("Error closing account!");
   }

@@ -7,7 +7,7 @@ require_once(__DIR__ . "/../../lib/functions.php");
 
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You don't have permission to access this page");
+  flash("You don't have permission to access this page", "danger");
   die(header("Location: login.php"));
 }
 
@@ -33,7 +33,7 @@ if (isset($_POST["save"])) {
 
   $balance = $_POST["balance"];
   if($balance < 500) {
-    die(flash("Minimum balance not entered."));
+    die(flash("Minimum balance not entered.", "warning"));
   }
 
   $user = get_user_id();
@@ -49,10 +49,10 @@ if (isset($_POST["save"])) {
   ]);
   if ($r) {
     changeBalance($db, $db->lastInsertId(), $account_dest, 'deposit', $balance, 'New account deposit');
-    flash("Account created successfully with Number: " . $account_number);
+    flash("Account created successfully with Number: " . $account_number, "success");
     die(header("Location: list_accounts.php"));
   } else {
-    flash("Error creating account!");
+    flash("Error creating account!", "warning");
   }
 }
 ?>
