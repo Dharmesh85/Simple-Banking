@@ -2,7 +2,7 @@
 require(__DIR__ . "/../../partials/nav.php");
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You don't have permission to access this page");
+  flash("You don't have permission to access this page","danger");
   die(header("Location: login.php"));
 }
 
@@ -25,8 +25,9 @@ if ($r) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <head>
-  <title>Accounts</title>
-    <h3 class="text-center mt-4 mb-4">Accounts</h3>
+<div class="jumbotron text-center">
+  <h1> Accounts </h1>
+</div>
 
     <?php if (count($results) > 0): ?>
       <table class="table">

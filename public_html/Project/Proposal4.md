@@ -1,5 +1,5 @@
 # Project Name: Simple Banking 
-## Project Summary: This project will create a bank simulation for users. They’ll be able to have various accounts, do standard bank functions like deposit, withdraw, internal (user’s accounts)/external(other user’s accounts) transfers, and creating/closing accounts.
+## Project Summary: This project will create a bank simulation for users. They’ll be able to have various accounts, do standard bank functions like deposit, withdraw, internal (user’s accounts)/external(other user’s accounts) transfers, and creating/closing acc19nts.
 ## Github Link: 
 ## Project Board Link: 
 ## Website Link:
@@ -9,7 +9,7 @@
 ### Line item / Feature template (use this for each bullet point)
 #### Don't delete this
 
-- [ ] \(mm/dd/yyyy of completion) Feature Title (from the proposal bullet point, if it's a sub-point indent it properly)
+- [x] (12/9//2021) Feature Title (from the proposal bullet point, if it's a sub-point indent it properly)
   -  List of Evidence of Feature Completion
     - Status: Pending (Completed, Partially working, Incomplete, Pending)
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -26,9 +26,41 @@
 - Milestone 2
 - Milestone 3
 - Milestone 4
-- - [ ] \(mm/dd/yyyy of completion) User can set their profile to be public or private (will need another column in Users table)
+- - [x](12/19/2021) User can set their profile to be public or private (will need another column in Users table)
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Completed
+    - Direct Link: https://dbp64.herokuapp.com/Project/Profile.php
+    - Pull Requests
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/101
+    - Screenshots
+      - Screenshot #1 <img width="640" alt="Screen Shot 2021-12-21 at 1 42 36 AM" src="https://user-images.githubusercontent.com/77698793/146883964-93b04fde-b42d-495f-bde5-9b64050ebea2.png">
+        - Screenshot #1 Able to select Public or private profile 
+
+- [x] (12/19/2021) User will be able open a savings account
+  -  List of Evidence of Feature Completion
+    - Status: Completed
+    - Direct Link: https://dbp64.herokuapp.com/Project/create_account.php
+    - Pull Requests
+      - PR link #1 https://github.com/Dharmesh85/IT202-011/pull/102
+    - Screenshots
+      - Screenshot #1 <img width="637" alt="Screen Shot 2021-12-21 at 1 46 48 AM" src="https://user-images.githubusercontent.com/77698793/146884359-abef3256-5d71-41fe-bdfc-2cf87d68206d.png">
+        - Screenshot #1 Has the option to create checking or saving account
+      - Screenshot #2 <img width="1440" alt="Screen Shot 2021-12-21 at 1 47 11 AM" src="https://user-images.githubusercontent.com/77698793/146884436-d2772761-b86e-46c4-8836-b80d97a0e6d3.png">
+        - Screenshot #2 Can see save accounts in account list and APY
+
+- [x] (12/19/2021) User will be able to take out a loan 
+  -  List of Evidence of Feature Completion
+    - Status: Completed
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1 (repeat as necessary)
+    - Screenshots
+      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
+        - Screenshot #1 description explaining what you're trying to show
+
+- [x] (12/19/2021) Listing accounts and/or viewing Account Details should show any applicable APY or “-” if none is set for the particular 19count (may alternatively just hide the display for these types)
+  -  List of Evidence of Feature Completion
+    - Status: Completed
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
@@ -36,9 +68,9 @@
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
 
-- [ ] \(mm/dd/yyyy of completion) User will be able open a savings account
+- [x] (12/20/2021)User will be able to close an account 
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Complete
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
@@ -46,39 +78,9 @@
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
 
-- [ ] \(mm/dd/yyyy of completion) User will be able to take out a loan 
+- [x] (12/20/2021) Admin role (leave this section for last)
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-
-- [ ] \(mm/dd/yyyy of completion) Listing accounts and/or viewing Account Details should show any applicable APY or “-” if none is set for the particular account (may alternatively just hide the display for these types)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-
-- [ ] \(mm/dd/yyyy of completion)User will be able to close an account 
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-
-- [ ] \(mm/dd/yyyy of completion) Admin role (leave this section for last)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Incomplete
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)

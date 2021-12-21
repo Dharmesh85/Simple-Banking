@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../../lib/functions.php");
 <?php
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You must be logged in to access this page");
+  flash("You must be logged in to access this page","danger");
   die(header("Location: login.php"));
 }
 
