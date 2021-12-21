@@ -1,8 +1,6 @@
 <?php
 require(__DIR__ . "/../../lib/functions.php");
 require(__DIR__ . "/../../partials/nav.php");
-
-
 ?>
 
 
