@@ -51,13 +51,21 @@ require(__DIR__ . "/../../partials/nav.php");
     <li class="col-md-6  mx-auto m-2  bg-dark text-nowrap "  ><a class="nav-link" href="<?php echo get_url("transactions.php?type=withdraw"); ?>"><h2>Withdraw</h2></a></li>
     </div>
 
-    <div class="col-md-3 mx-auto m-3  bg-dark" >
+    <div class="col-md-3 mx-auto m-2  bg-dark" >
     <li class="col-md-5  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="transactions.php?type=transfer"><h2>Transfer</h2></a></li>
     </div>
-    <div class="container">
-  <div class="row align-items">
-    <div class="col-md-3 mx-auto m-3  bg-dark" >
-    <li class="col-md-11  mx-auto m-2  bg-dark text-nowrap"  ><a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> <h2>Transfer To Other User</h2></a></li>
+  </div>
+    <div class="container-fluid mx-auto ">
+    <div class="row">
+        <div class="col-md-3 mx-auto m-3 bg-dark"> <a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> <h2>Transfer To Other User</h2></a>
+        </div>
+    <div class="container-fluid-end mx-auto ">
+    <div class="row">
+        <div class="col-md-12 mx-auto m-3 bg-dark text-nowrap"> <a class="nav-link" href="<?php echo get_url("close_account.php");?>"><h2>Close Account</h2></a>
+        </div>
+    </div>
+    </div>
+    
     </div>
 </div>
 
