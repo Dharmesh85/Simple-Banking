@@ -90,7 +90,7 @@ if (isset($_POST["save"])) {
   <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'transfer' ? 'active' : ''; ?>" href="?type=transfer">Transfer</a></li>
-  <li class="nav-item"><a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> Tranfer to Another User</a></li>
+  <li class="nav-item"><a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> Transfer to Another User</a></li>
 
 </ul> 
 
