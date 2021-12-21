@@ -40,7 +40,7 @@ require_once(__DIR__ . "/../lib/functions.php");
                 <?php if (is_logged_in()) : ?>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('home.php'); ?>"><h2>Home</h2></a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('dashboard.php'); ?>"><h2>Dashboard</h2></a></li>
-                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>"><h2>Profile</h2></a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('Profile.php'); ?>"><h2>Profile</h2></a></li>
                     <li class="navbar-brand"><a class="nav-link" href="<?php echo get_url('logout.php'); ?>"><h2>Logout</h2></a></li>
                     
                 <?php endif; ?>

@@ -23,7 +23,7 @@ require(__DIR__ . "/../../partials/nav.php");
   <h1> Dashboard </h1>
 </div>
 <div class="row">
-  <div class="col text-center m-1 bg-dark"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>"><h2>Profile</h2></a></div>
+  <div class="col text-center m-1 bg-dark"><a class="nav-link" href="<?php echo get_url('Profile.php'); ?>"><h2>Profile</h2></a></div>
   <div class="col text-center m-1 bg-dark"><a class="nav-link" href="<?php echo get_url('create_account.php'); ?>"><h2>Create Accounts</h2></a></div>
   <div class="col text-center m-1 bg-dark"><a class="nav-link" href="<?php echo get_url('list_accounts.php'); ?>"> <h2>Accounts</h2></a></div>
   
