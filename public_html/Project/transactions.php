@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../../lib/functions.php");
 
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You don't have permission to access this page");
+  flash("You don't have permission to access this page","danger");
   die(header("Location: login.php"));
 }
 
@@ -90,7 +90,7 @@ if (isset($_POST["save"])) {
   <li class="nav-item"><a class="nav-link <?php echo $type == 'deposit' ? 'active' : ''; ?>" href="?type=deposit">Deposit</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'withdraw' ? 'active' : ''; ?>" href="?type=withdraw">Withdraw</a></li>
   <li class="nav-item"><a class="nav-link <?php echo $type == 'transfer' ? 'active' : ''; ?>" href="?type=transfer">Transfer</a></li>
-  <li class="nav-item"><a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> Tranfer to Another User</a></li>
+  <li class="nav-item"><a class="nav-link" href="<?php echo get_url("transfer_other_acct.php"); ?>"> Transfer to Another User</a></li>
 
 </ul> 
 
@@ -100,9 +100,11 @@ if (isset($_POST["save"])) {
     <label for="account"><?php echo $type == 'transfer' ? 'Account Source' : 'Account'; ?></label>
     <select class="form-control" id="account" name="<?php echo $type == 'transfer' ? 'account_src' : 'account'; ?>">
       <?php foreach ($results as $r): ?>
+        <?php if ($r["account_type"] != "loan"): ?>
       <option value="<?php echo($r["id"]); ?>">
         <?php echo($r["account_number"]); ?> | <?php echo($r["account_type"]); ?> | <?php echo($r["balance"]); ?>
       </option>
+      <?php endif; ?>
       <?php endforeach; ?>
     </select>
   </div>

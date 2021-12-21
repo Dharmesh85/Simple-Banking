@@ -198,6 +198,14 @@ function changeBalance($db, $src, $dest, $type, $balChange, $memo = '') {
   
     return $transactions;
   }
+  function get_privacy()
+{
+  if (is_logged_in() && isset($_SESSION["user"]["id"])) {
+    return $_SESSION["user"]["privacy"];
+  }
+  return -1;
+}
+
   function get_random_str($length)
 {
     //https://stackoverflow.com/a/13733588
@@ -209,3 +217,4 @@ function changeBalance($db, $src, $dest, $type, $balChange, $memo = '') {
 }
   
   ?>
+  
