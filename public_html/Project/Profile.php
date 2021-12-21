@@ -1,10 +1,11 @@
-<?php require(__DIR__ . "/../../partials/nav.php");
+<?php 
+require(__DIR__ . "/../../partials/nav.php");
 require_once(__DIR__ . "/../../lib/functions.php");
 ?>
 <?php
 if (!is_logged_in()) {
   //this will redirect to login and kill the rest of this script (prevent it from executing)
-  flash("You must be logged in to access this page");
+  flash("You must be logged in to access this page","danger");
   die(header("Location: login.php"));
 }
 
@@ -62,14 +63,15 @@ if (isset($_POST["saved"])) {
   }
   if ($isValid) {
     $stmt = $db->prepare(
-      "UPDATE Users set email = :email, username = :username, _FirstName = :_FirstName, _LastName = :_LastName where id = :id"
+      "UPDATE Users set email = :email, username = :username, _FirstName = :_FirstName, _LastName = :_LastName, privacy = :privacy where id = :id"
     );
     $r = $stmt->execute([
       ":email" => $newEmail,
       ":username" => $newUsername,
       ":id" => get_user_id(),
-      ":_FirstName" => $_POST["FirstName"],
-      ":_LastName" => $_POST["LastName"]
+      ":_FirstName" => $_POST["_FirstName"],
+      ":_LastName" => $_POST["_LastName"],
+      ":privacy" => $_POST["privacy"]
     ]);
     if ($r) {
       flash("Updated profile", "success");
@@ -96,7 +98,7 @@ if (isset($_POST["saved"])) {
     }
     //fetch/select fresh data in case anything changed
     $stmt = $db->prepare(
-      "SELECT email, username, _FirstName, _LastName from Users WHERE id = :id LIMIT 1"
+      "SELECT email, username, _FirstName, _LastName, privacy from Users WHERE id = :id LIMIT 1"
     );
     $stmt->execute([":id" => get_user_id()]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -105,11 +107,13 @@ if (isset($_POST["saved"])) {
       $username = $result["username"];
       $firstname = $result["_FirstName"];
       $lastname = $result["_LastName"];
+      
       //let's update our session too
       $_SESSION["user"]["email"] = $email;
       $_SESSION["user"]["username"] = $username;
       $_SESSION["user"]["_FirstName"] = $firstname;
       $_SESSION["user"]["_LastName"] = $lastname;
+      $_SESSION["user"]["privacy"] = $result["privacy"];
     }
   } else {
     //else for $isValid, though don't need to put anything here since the specific failure will output the message
@@ -125,27 +129,39 @@ if (isset($_POST["saved"])) {
 
   
 </head>
-<div class="h1 text-center  text-dark">Profile</div>
+
+<div class="jumbotron text-center">
+<h1>Profile</h1>
+</div>
 <form method="POST">
 <div class="mx-auto" style="width: 200px;">
-   <label class="form-label" for="email">Email Address</label>
+   <label class="form-label" for="email"><span style="font-size:15px">Email</span> </label>
     <input type="email" class="form-control" id="email" name="email" maxlength="100" required value="<?php echo(get_user_email()); ?>">
   </div>
   <div class="mx-auto" style="width: 200px;">
-   <label class="form-label" for="username">Username</label>
+   <label class="form-label" for="username"><span style="font-size:15px"> Username</span></label>
     <input type="text" class="form-control" id="username" name="username" maxlength="60" required value="<?php echo(get_username()); ?>">
   </div>
   <div class="mx-auto" style="width: 200px;">
-       <label class="form-label" for="_FirstName">First Name</label>
+       <label class="form-label" for="_FirstName"><span style="font-size:15px">Last Name</span></label>
         <input type="text" class="form-control" id="_FirstName" name="_FirstName" maxlength="60" required value="<?php echo(get_firstname()); ?>">
       </div>
     </div>
     <div class="row">
     <div class="mx-auto" style="width: 200px;">
-       <label class="form-label" for="_LastName">Last Name</label>
+       <label class="form-label" for="_LastName"><span style="font-size:15px"> Last Name</span></label>
         <input type="text" class="form-control" id="_LastName" name="_LastName" maxlength="60" required value="<?php echo(get_lastname()); ?>">
       </div>
     </div>
+  </div>
+  <div class="form-group">
+  <div class ="mx-auto" style="width: 200px;">
+    <label for="privacy"><span style="font-size:15px">Privacy</span></label>
+    <select class="form-control" id="privacy" name="privacy">
+      <option value="private" <?php echo get_privacy() == "private" ? "selected": ""; ?>>Private</option>
+      <option value="public" <?php echo get_privacy() == "public" ? "selected": ""; ?>>Public</option>
+	  </select>
+    <small class="form-text text-muted">Allow other users to see your profile.</small>
   </div>
 
   <hr>
@@ -154,15 +170,16 @@ if (isset($_POST["saved"])) {
 
   <!-- DO NOT PRELOAD PASSWORD-->
   <div class="mx-auto" style="width: 200px;">
-   <label class="form-label" for="password">Password</label>
+   <label class="form-label" for="password"><span style="font-size:15px">Password</span></label>
     <input type="password" class="form-control" id="password" name="password" maxlength="60">
   </div>
   <div class="mx-auto" style="width: 200px;">
-   <label class="form-label" for="confirm">Confirm Password</label>
+   <label class="form-label" for="confirm"><span style="font-size:15px">Confirm Password</span></label>
     <input type="password" class="form-control" id="confirm" name="confirm" maxlength="60">
   </div>
   <div class="mx-auto" style="width: 100px;">
-  <button type="submit" name="saved" value="Save Profile" class="btn btn-primary">Save Profile</button>
+  <button type="submit" name="saved" value="Save Profile" class="btn btn-primary"><span style="font-size:15px">Update Profile</span></button>
 </form>
 
 <?php require(__DIR__ . "/../../partials/flash.php");
+?>
